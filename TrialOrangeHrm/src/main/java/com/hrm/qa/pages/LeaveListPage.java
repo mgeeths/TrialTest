@@ -31,10 +31,12 @@ public class LeaveListPage extends BaseClass {
 
 	//Actions
 	public void enterEmpDetails() {
+		/*
 		@SuppressWarnings("deprecation")
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		//WebDriverWait wait = new WebDriverWait(driver);
 		wait.until(ExpectedConditions.elementToBeClickable(allCheckbox));
+		*/
 		allCheckbox.click();
 		empNameField.sendKeys(prop.getProperty("empName"));
 		searchBtn.click();

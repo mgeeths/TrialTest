@@ -109,4 +109,23 @@ public class AssignLeavePage extends BaseClass{
 		leaveListLink.click();
 		return new LeaveListPage();
 	}
+
+	public void enterAllInputFields() {
+		empNameField.sendKeys(prop.getProperty("empName"));
+		Select select = new Select(driver.findElement(By.id("assignleave_txtLeaveType")));
+		select.selectByIndex(2);
+		WebElement fromDateEle = driver.findElement(By.id("assignleave_txtFromDate"));
+		fromDateEle.clear();
+		fromDateEle.sendKeys(prop.getProperty("leaveFromDate"));
+		WebElement fromToEle = driver.findElement(By.id("assignleave_txtToDate"));
+		fromToEle.clear();
+		fromToEle.sendKeys(prop.getProperty("leaveToDate"));
+		fromToEle.sendKeys(Keys.ENTER);
+		commentsBox.sendKeys(prop.getProperty("empName") + " is going on leave from " + prop.getProperty("leaveFromDate") + " to " + prop.getProperty("leaveToDate"));
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
 }

@@ -15,6 +15,7 @@ public class LeaveListPageTest extends BaseClass{
 	LoginPage loginPage;
 	DashboardPage dashboardPage;
 	AssignLeavePage assignLeavePage;
+	
 	LeaveListPage leaveListPage;
 	
 	public LeaveListPageTest() {
@@ -32,11 +33,7 @@ public class LeaveListPageTest extends BaseClass{
 		loginPage.goToWebsite();
 		loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
 		dashboardPage.goToAssignLeave();
-		assignLeavePage.enterEmpName();
-		assignLeavePage.selectLeaveType();
-		assignLeavePage.enterFromDate();
-		assignLeavePage.enterToDate();
-		assignLeavePage.enterComments();
+		assignLeavePage.enterAllInputFields();
 		assignLeavePage.clickAssignBtn();
 		assignLeavePage.successMsg();
 		assignLeavePage.goToLeaveListPage();

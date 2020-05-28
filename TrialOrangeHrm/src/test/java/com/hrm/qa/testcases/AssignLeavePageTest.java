@@ -24,11 +24,13 @@ public class AssignLeavePageTest extends BaseClass {
 		 loginPage = new LoginPage();
 		 dashboardPage = new DashboardPage();
 		 assignLeavePage = new AssignLeavePage();
+		 
 		 loginPage.goToWebsite();
 		 loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
 		 dashboardPage.goToAssignLeave();
 		 
 	}
+	/*
 	@Test
 	public void enterEmpName() {
 		assignLeavePage.enterEmpName();
@@ -45,6 +47,12 @@ public class AssignLeavePageTest extends BaseClass {
 		assignLeavePage.clickAssignBtn();
 		assignLeavePage.successMsg();
 
+	} */
+	@Test 
+	public void assignLeaveToEmp() {
+		assignLeavePage.enterAllInputFields();
+		assignLeavePage.clickAssignBtn();
+		assignLeavePage.successMsg();
 	}
 	@AfterMethod
 	public void tearDown() {
