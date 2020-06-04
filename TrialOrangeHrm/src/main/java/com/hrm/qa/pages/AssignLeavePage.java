@@ -1,5 +1,7 @@
 package com.hrm.qa.pages;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -49,7 +51,7 @@ public class AssignLeavePage extends BaseClass{
 	
 	public void selectLeaveType() {
 		Select select = new Select(driver.findElement(By.id("assignleave_txtLeaveType")));
-		select.selectByIndex(2);
+		select.selectByVisibleText("Vacation US");
 	}
 	
 	public void chooseFromDate() {
@@ -87,8 +89,9 @@ public class AssignLeavePage extends BaseClass{
 	}
 	
 	public void enterComments() {
-		@SuppressWarnings("deprecation")
-		WebDriverWait wait = new WebDriverWait(driver, 10);
+		//@SuppressWarnings("deprecation")
+		//WebDriverWait wait = new WebDriverWait(driver, 10);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.elementToBeClickable(leaveBalLink));
 		commentsBox.sendKeys("Jasmine Morgan is going on leave in July sfhsfhgshsfbzcvz");
 		System.out.println(commentsBox.getText());
@@ -106,14 +109,19 @@ public class AssignLeavePage extends BaseClass{
 	}
 	
 	public LeaveListPage goToLeaveListPage() {
-		leaveListLink.click();
+		//leaveListLink.click();
+		JavascriptExecutor js = ((JavascriptExecutor)driver);
+		js.executeScript("arguments[0].click();", leaveListLink);
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[@class='toggle tiptip']")));
 		return new LeaveListPage();
 	}
 
 	public void enterAllInputFields() {
 		empNameField.sendKeys(prop.getProperty("empName"));
 		Select select = new Select(driver.findElement(By.id("assignleave_txtLeaveType")));
-		select.selectByIndex(2);
+		select.selectByVisibleText("Vacation US");
 		WebElement fromDateEle = driver.findElement(By.id("assignleave_txtFromDate"));
 		fromDateEle.clear();
 		fromDateEle.sendKeys(prop.getProperty("leaveFromDate"));

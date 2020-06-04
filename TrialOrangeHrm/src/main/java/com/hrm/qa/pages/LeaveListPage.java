@@ -1,60 +1,286 @@
 package com.hrm.qa.pages;
 
+import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import com.hrm.qa.base.BaseClass;
 
 public class LeaveListPage extends BaseClass {
 
+	// Page Factory
 	
-	//Page Factory
-	@FindBy(id="leaveList_chkSearchFilter_checkboxgroup_allcheck")
+	@FindBy(xpath = "//img[@class='ui-datepicker-trigger']")
+	WebElement fromCalender;
+	
+	@FindBy(xpath = "(//img[@class='ui-datepicker-trigger'])[2]")
+	WebElement toCalender;
+	
+	@FindBy(xpath = "//select[@data-handler='selectMonth']")
+	WebElement selectMonth;
+	
+	@FindBy(xpath = "//select[@data-handler='selectYear']")
+	WebElement selectYear;
+	
+	@FindBy(linkText = "prop.getProperty('filterFromDay')")
+	WebElement selectDay;
+	
+	@FindBy(id = "leaveList_chkSearchFilter_checkboxgroup_allcheck")
 	WebElement allCheckbox;
 
-	@FindBy(id="leaveList_txtEmployee_empName")
+	@FindBy(xpath = "//input[(@id='leaveList_chkSearchFilter_2') and (@value='2')]")
+	WebElement scheduledChkbox;
+
+	@FindBy(xpath = "//input[@id='leaveList_chkSearchFilter_1']")
+	WebElement pendingChkbox;
+
+	@FindBy(xpath = "//input[@id='leaveList_chkSearchFilter_3']")
+	WebElement takenChkbox;
+
+	@FindBy(id = "leaveList_txtEmployee_empName")
 	WebElement empNameField;
-	
-	@FindBy(id="btnSearch")
+
+	@FindBy(id = "btnSearch")
 	WebElement searchBtn;
-	
+
+	@FindBy(xpath = "//input[@id = 'btnSave']")
+	WebElement saveBtn;
+
 	public LeaveListPage() {
 		PageFactory.initElements(driver, this);
 	}
 
+	// Actions
+	
+	public void enterFromDateFilter() {
+		fromCalender.click();
+		Select selectm = new Select(selectMonth);
+		selectm.selectByVisibleText(prop.getProperty("filterFromMonth"));
+		
+		Select selecty = new Select(selectYear);
+		selecty.selectByVisibleText(prop.getProperty("filterFromYear"));
+		
+		driver.findElement(By.linkText(prop.getProperty("filterFromDay"))).click();
+		
+	}
+	
+	public void enterToDateFilter() {
+		toCalender.click();
+		Select selectm = new Select(selectMonth);
+		selectm.selectByVisibleText(prop.getProperty("filterToMonth"));
+		
+		Select selecty = new Select(selectYear);
+		selecty.selectByVisibleText(prop.getProperty("filterToYear"));
+		
+		driver.findElement(By.linkText(prop.getProperty("filterToDay"))).click();		
+	}
+	public void enterEmpNameInFilter() {
 
-	//Actions
-	public void enterEmpDetails() {
-		/*
-		@SuppressWarnings("deprecation")
-		WebDriverWait wait = new WebDriverWait(driver, 10);
-		//WebDriverWait wait = new WebDriverWait(driver);
-		wait.until(ExpectedConditions.elementToBeClickable(allCheckbox));
-		*/
-		allCheckbox.click();
+		empNameField.click();
+		empNameField.clear();
 		empNameField.sendKeys(prop.getProperty("empName"));
+
+	}
+
+	// this method will return null if the web element for rows is null.
+	public String resultTableAllStatus() {
+		allCheckbox.click();
 		searchBtn.click();
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-	}
-	//this method will return null if the web element for rows is null.
-	public String resultTable() {
-		List<WebElement> allRows = driver.findElements(By.xpath("//table[@id='resultTable']//tr[@class='odd']|//table[@id='resultTable']//tr[@class='even']"));
-		for(int i=0; i<allRows.size(); i++) {
-	    	List <WebElement> allCols = allRows.get(i).findElements(By.xpath("./td"));
-			String name =allCols.get(1).findElement(By.xpath("./a")).getText();
-			return name;
+		List<WebElement> allRows = driver.findElements(
+				By.xpath("//table[@id='resultTable']//tr[@class='odd']|//table[@id='resultTable']//tr[@class='even']"));
+		for (int i = 0; i < allRows.size(); i++) {
+			List<WebElement> allCols = allRows.get(i).findElements(By.xpath("./td"));
+			String name = allCols.get(1).findElement(By.xpath("./a")).getText();
+
 		}
 		return null;
 	}
-	
+
+	// returns if all the rows has the status 'scheduled'
+	public boolean scheduledStatus() {
+		// scheduledChkbox.click();
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		js.executeScript("arguments[0].click();", scheduledChkbox);
+		js.executeScript("arguments[0].click();", pendingChkbox);
+		searchBtn.click();
+		List<WebElement> allRows = driver.findElements(
+				By.xpath("//table[@id='resultTable']//tr[@class='odd']|//table[@id='resultTable']//tr[@class='even']"));
+		boolean flag = allRows.size() > 0;
+		for (int i = 0; i < allRows.size(); i++) {
+			List<WebElement> statusCol = allRows.get(i).findElements(By.xpath("./td"));
+			String status;
+			status = statusCol.get(5).findElement(By.xpath("./a")).getText();
+			System.out.println(status);
+			// Assert.assertTrue(status.contains("Scheduled"));
+			if (!status.contains("Scheduled")) {
+				flag = false;
+			}
+		}
+		return flag;
+	}
+
+	public boolean takenStatus() {
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		js.executeScript("arguments[0].click();", pendingChkbox);
+		// js.executeScript("arguments[0].click();", scheduledChkbox);
+		js.executeScript("arguments[0].click();", takenChkbox);
+		searchBtn.click();
+
+		List<WebElement> allRows = driver.findElements(
+				By.xpath("//table[@id='resultTable']//tr[@class='odd']|//table[@id='resultTable']//tr[@class='even']"));
+		boolean flag = (allRows.size() > 0);
+		for (WebElement thisRow : allRows) {
+			List<WebElement> allColumns = thisRow.findElements(By.xpath("./td"));
+			String status = allColumns.get(5).findElement(By.xpath("./a[contains(.,'Taken')]")).getText();
+			System.out.println(status);
+			if (!status.contains("Taken")) {
+				flag = false;
+			}
+
+		}
+		return flag;
+	}
+
+	public boolean allStatus() {
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		js.executeScript("arguments[0].click();", allCheckbox);
+		searchBtn.click();
+
+		List<WebElement> allRows = driver.findElements(
+				By.xpath("//table[@id='resultTable']//tr[@class='odd']|//table[@id='resultTable']//tr[@class='even']"));
+		boolean flag = (allRows.size() > 0);
+		for (WebElement eachRow : allRows) {
+			List<WebElement> allCols = eachRow.findElements(By.xpath("./td"));
+			String status = allCols.get(5)
+					.findElement(By.xpath("./a[contains(.,'Scheduled')]|./a[contains(.,'Taken')]")).getText();
+			System.out.println(status);
+			if (!(status.contains("Scheduled") || status.contains("Taken"))) {
+				flag = false;
+			}
+		}
+		return flag;
+	}
+
+	/*
+	 * If a function returns something, then its data type should be mentioned in
+	 * the function defn. So, when we want to assert something in the testPage, the
+	 * called function should return that value to be asserted. The logic should be,
+	 * to make sure what the function should return(for it to be asserted correctly,
+	 * especially when the function involves a for loop or if then st. In this
+	 * function, the flag is set to False to begin with. This will make the function
+	 * return false if there are no rows in the search result. As, there should be
+	 * atleast one row , otherwise, the function should return false in order to
+	 * fail it. Then, check if the conditions in the if st are satisfied, in order
+	 * to go into the steps to be executed. Once it is executed successfully, the
+	 * flag is set to true. Then it goes to the next item in the for loop. So, the
+	 * flag remains True as long as each item is successfully executed. Even if one
+	 * item is not executed,(because the if cond is not met), the flag will be set
+	 * to flase and the function will return false. Hence failure. i.e. This
+	 * function will return true only if all the line items are successfully
+	 * executed.
+	 * 
+	 * 
+	 */
+	public boolean cancelStatus() throws InterruptedException {
+		empNameField.click();
+		empNameField.clear();
+		empNameField.sendKeys(prop.getProperty("empName"));
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		js.executeScript("arguments[0].click();", allCheckbox);
+		js.executeScript("arguments[0].click();", searchBtn);
+
+		// searchBtn.click();
+
+		List<WebElement> allRows = driver.findElements(
+				By.xpath("//table[@id='resultTable']//tr[@class='odd']|//table[@id='resultTable']//tr[@class='even']"));
+		boolean flag = false;
+		for (WebElement eachRow : allRows) {
+			List<WebElement> allCols = eachRow.findElements(By.xpath("./td"));
+			String type = allCols.get(2).getText();
+			String status = allCols.get(5).getText();
+			if (type.equals("Vacation US") && !status.contains("Cancelled")) {
+				Select select = new Select(
+						allCols.get(7).findElement(By.xpath("./select[starts-with(@id,'select_leave_action')]")));
+				select.selectByVisibleText("Cancel");
+				saveBtn.click();
+				Thread.sleep(2000);
+				String bodyText = driver.findElement(By.tagName("body")).getText();
+				Assert.assertTrue(bodyText.contains("Successfully Updated"), "Successfully Updated msg not displayed");
+				Thread.sleep(2000);
+				// WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5));
+				// wait.until(ExpectedConditions.elementToBeClickable(By.xpath("./a[contains(.,'Cancelled')]")));
+				flag = true;
+			}
+		}
+
+		return flag;
+	}
+
+	public void cancelOneAssignedLeave() throws InterruptedException {
+		empNameField.click();
+		empNameField.clear();
+		empNameField.sendKeys(prop.getProperty("empName"));
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		js.executeScript("arguments[0].click();", allCheckbox);
+		js.executeScript("arguments[0].click();", searchBtn);
+
+		List<WebElement> allRows = driver.findElements(
+				By.xpath("//table[@id='resultTable']//tr[@class='odd']|//table[@id='resultTable']//tr[@class='even']"));
+		for (WebElement eachRow : allRows) {
+			List<WebElement> allCols = eachRow.findElements(By.xpath("./td"));
+			// String type = allCols.get(2).getText();
+			String status = allCols.get(5).getText();
+			if (!status.contains("Cancelled")) {
+				Select select = new Select(
+						allCols.get(7).findElement(By.xpath("./select[starts-with(@id,'select_leave_action')]")));
+				select.selectByVisibleText("Cancel");
+				saveBtn.click();
+				Thread.sleep(2000);
+				String bodyText = driver.findElement(By.tagName("body")).getText();
+				Assert.assertTrue(bodyText.contains("Successfully Updated"), "Successfully Updated msg not displayed");
+				Thread.sleep(2000);
+				break;
+			}
+		}
+	}
+
+	public void cancelManyLeaveAssigned() throws InterruptedException {
+		empNameField.click();
+		empNameField.clear();
+		empNameField.sendKeys(prop.getProperty("empName"));
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		js.executeScript("arguments[0].click();", allCheckbox);
+		js.executeScript("arguments[0].click();", searchBtn);
+
+		List<WebElement> allRows = driver.findElements(
+				By.xpath("//table[@id='resultTable']//tr[@class='odd']|//table[@id='resultTable']//tr[@class='even']"));
+		for (WebElement eachRow : allRows) {
+			List<WebElement> allCols = eachRow.findElements(By.xpath("./td"));
+			String status = allCols.get(5).getText();
+			if (!status.contains("Cancelled")) {
+				Select select = new Select(
+						allCols.get(7).findElement(By.xpath("./select[starts-with(@id,'select_leave_action')]")));
+				select.selectByVisibleText("Cancel");
+			}
+		}
+		saveBtn.click();
+		Thread.sleep(2000);
+		String bodyText = driver.findElement(By.tagName("body")).getText();
+		Assert.assertTrue(bodyText.contains("Successfully Updated"), "Successfully Updated msg not displayed");
+		Thread.sleep(2000);
+	}
 }

@@ -30,25 +30,7 @@ public class AssignLeavePageTest extends BaseClass {
 		 dashboardPage.goToAssignLeave();
 		 
 	}
-	/*
-	@Test
-	public void enterEmpName() {
-		assignLeavePage.enterEmpName();
-		assignLeavePage.selectLeaveType();
-		assignLeavePage.enterFromDate();
-		assignLeavePage.enterToDate();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		assignLeavePage.enterComments();
-		assignLeavePage.clickAssignBtn();
-		assignLeavePage.successMsg();
-
-	} */
-	@Test 
+		@Test 
 	public void assignLeaveToEmp() {
 		assignLeavePage.enterAllInputFields();
 		assignLeavePage.clickAssignBtn();

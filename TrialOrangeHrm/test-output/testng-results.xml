@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="21375" started-at="2020-05-28T15:25:32 PDT" finished-at="2020-05-28T15:25:54 PDT">
+  <suite name="Default suite" duration-ms="17956" started-at="2020-06-03T19:24:12 PDT" finished-at="2020-06-03T19:24:30 PDT">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="21375" started-at="2020-05-28T15:25:32 PDT" finished-at="2020-05-28T15:25:54 PDT">
-      <class name="com.hrm.qa.testcases.LeaveListPageTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.hrm.qa.testcases.LeaveListPageTest@78e67e0a]" name="setUp" is-config="true" duration-ms="16539" started-at="2020-05-28T15:25:32 PDT" finished-at="2020-05-28T15:25:49 PDT">
+    <test name="Default test" duration-ms="17956" started-at="2020-06-03T19:24:12 PDT" finished-at="2020-06-03T19:24:30 PDT">
+      <class name="com.hrm.qa.testcases.ConfigureHolidaysTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.hrm.qa.testcases.ConfigureHolidaysTest@78e67e0a]" name="setUp" is-config="true" duration-ms="11604" started-at="2020-06-03T19:24:12 PDT" finished-at="2020-06-03T19:24:24 PDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="enterEmpDetails()[pri:0, instance:com.hrm.qa.testcases.LeaveListPageTest@78e67e0a]" name="enterEmpDetails" duration-ms="4081" started-at="2020-05-28T15:25:49 PDT" finished-at="2020-05-28T15:25:53 PDT">
+        <test-method status="PASS" signature="verifyEditHoiliday()[pri:0, instance:com.hrm.qa.testcases.ConfigureHolidaysTest@78e67e0a]" name="verifyEditHoiliday" duration-ms="5579" started-at="2020-06-03T19:24:24 PDT" finished-at="2020-06-03T19:24:29 PDT">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- enterEmpDetails -->
-        <test-method status="PASS" signature="teraDown()[pri:0, instance:com.hrm.qa.testcases.LeaveListPageTest@78e67e0a]" name="teraDown" is-config="true" duration-ms="711" started-at="2020-05-28T15:25:53 PDT" finished-at="2020-05-28T15:25:54 PDT">
+        </test-method> <!-- verifyEditHoiliday -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.hrm.qa.testcases.ConfigureHolidaysTest@78e67e0a]" name="tearDown" is-config="true" duration-ms="723" started-at="2020-06-03T19:24:29 PDT" finished-at="2020-06-03T19:24:30 PDT">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- teraDown -->
-      </class> <!-- com.hrm.qa.testcases.LeaveListPageTest -->
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.hrm.qa.testcases.ConfigureHolidaysTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -15,6 +15,12 @@ public class DashboardPage extends BaseClass {
 	@FindBy(xpath="//div[@class='quickLaunge']/a[@href='/index.php/leave/assignLeave']")
 	WebElement assignLeaveLink;
 	
+	@FindBy(xpath="//div[@class='quickLaunge']/a[@href='/index.php/leave/viewLeaveList']")
+	WebElement viewLeaveList;
+	
+	@FindBy(id="menu_leave_viewLeaveModule")
+	WebElement leaveTab;
+	
 	public DashboardPage() {
 		PageFactory.initElements(driver, this);
 	}
@@ -31,5 +37,14 @@ public class DashboardPage extends BaseClass {
 		//String currentPage = driver.getCurrentUrl();
 		return new AssignLeavePage();
 		
+	}
+	
+	public void goToLeaveTab() {
+		leaveTab.click();
+	}
+	
+	public LeaveListPage goToLeaveList() {
+		viewLeaveList.click();
+		return new LeaveListPage();
 	}
 }

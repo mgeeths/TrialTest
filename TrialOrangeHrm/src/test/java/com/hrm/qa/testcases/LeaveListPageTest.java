@@ -11,17 +11,17 @@ import com.hrm.qa.pages.DashboardPage;
 import com.hrm.qa.pages.LeaveListPage;
 import com.hrm.qa.pages.LoginPage;
 
-public class LeaveListPageTest extends BaseClass{
+public class LeaveListPageTest extends BaseClass {
 	LoginPage loginPage;
 	DashboardPage dashboardPage;
 	AssignLeavePage assignLeavePage;
-	
+
 	LeaveListPage leaveListPage;
-	
+
 	public LeaveListPageTest() {
 		super();
 	}
-	
+
 	@BeforeMethod
 	public void setUp() {
 		launchBrowser();
@@ -29,29 +29,72 @@ public class LeaveListPageTest extends BaseClass{
 		dashboardPage = new DashboardPage();
 		assignLeavePage = new AssignLeavePage();
 		leaveListPage = new LeaveListPage();
-		
+
 		loginPage.goToWebsite();
 		loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
+		dashboardPage.goToLeaveList();
+		/*
 		dashboardPage.goToAssignLeave();
 		assignLeavePage.enterAllInputFields();
 		assignLeavePage.clickAssignBtn();
 		assignLeavePage.successMsg();
 		assignLeavePage.goToLeaveListPage();
+		*/
 	}
-	@Test
+
+	// @Test
 	public void enterEmpDetails() {
-		leaveListPage.enterEmpDetails();
-		String name =leaveListPage.resultTable();
+		leaveListPage.enterEmpNameInFilter();
+		String name = leaveListPage.resultTableAllStatus();
 		Assert.assertEquals(name, prop.getProperty("empName"));
 	}
+
+	// @Test
+	public void validateScheduledStatus() {
+		leaveListPage.enterEmpNameInFilter();
+		// leaveListPage.scheduledStatus();
+		Assert.assertTrue(leaveListPage.scheduledStatus());
+	}
+
+	// @Test
+	public void valiadateTakenStatus() {
+		leaveListPage.enterEmpNameInFilter();
+		Assert.assertTrue(leaveListPage.takenStatus());
+
+	}
+
+	// @Test
+	public void valiadateBothStatus() {
+		leaveListPage.enterEmpNameInFilter();
+		Assert.assertTrue(leaveListPage.allStatus());
+
+	}
+
+	//@Test
+	public void cancelLeaveAssigned() throws InterruptedException {
+		//leaveListPage.enterEmpNameInFilter();
+		Assert.assertTrue(leaveListPage.cancelStatus());
+	}
 	
+	//@Test
+	public void verifyCancelLeave() throws InterruptedException {
+		leaveListPage.cancelOneAssignedLeave();
+	}
 	
-	//public void verifySearchName() {
-		//String name =leaveListPage.resultTable();
-		//Assert.assertEquals(name, prop.getProperty("empName"));
-	//}
+	//@Test
+	public void verifyCancelManyLeave() throws InterruptedException {
+		leaveListPage.cancelManyLeaveAssigned();
+	}
+	
+	@Test
+	public void chooseDateFromCalender() throws InterruptedException {
+		leaveListPage.enterFromDateFilter();
+		leaveListPage.enterToDateFilter();
+		Thread.sleep(2000);
+	}
+
 	@AfterMethod
-	public void teraDown() {
+	public void tearDown() {
 		driver.quit();
 	}
 }
