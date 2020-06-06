@@ -1,25 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="17956" started-at="2020-06-03T19:24:12 PDT" finished-at="2020-06-03T19:24:30 PDT">
+  <suite name="Default suite" duration-ms="31530" started-at="2020-06-06T08:23:49 PDT" finished-at="2020-06-06T08:24:20 PDT">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="17956" started-at="2020-06-03T19:24:12 PDT" finished-at="2020-06-03T19:24:30 PDT">
-      <class name="com.hrm.qa.testcases.ConfigureHolidaysTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.hrm.qa.testcases.ConfigureHolidaysTest@78e67e0a]" name="setUp" is-config="true" duration-ms="11604" started-at="2020-06-03T19:24:12 PDT" finished-at="2020-06-03T19:24:24 PDT">
+    <test name="Default test" duration-ms="31530" started-at="2020-06-06T08:23:49 PDT" finished-at="2020-06-06T08:24:20 PDT">
+      <class name="com.hrm.qa.testcases.HolidaysPageTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.hrm.qa.testcases.HolidaysPageTest@4b553d26]" name="setUp" is-config="true" duration-ms="10298" started-at="2020-06-06T08:23:49 PDT" finished-at="2020-06-06T08:23:59 PDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="verifyEditHoiliday()[pri:0, instance:com.hrm.qa.testcases.ConfigureHolidaysTest@78e67e0a]" name="verifyEditHoiliday" duration-ms="5579" started-at="2020-06-03T19:24:24 PDT" finished-at="2020-06-03T19:24:29 PDT">
+        <test-method status="FAIL" signature="verifyResultsTablePerFilterDates()[pri:0, instance:com.hrm.qa.testcases.HolidaysPageTest@4b553d26]" name="verifyResultsTablePerFilterDates" duration-ms="20456" started-at="2020-06-06T08:23:59 PDT" finished-at="2020-06-06T08:24:20 PDT">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:97)
+at org.testng.Assert.failNotEquals(Assert.java:969)
+at org.testng.Assert.assertTrue(Assert.java:43)
+at org.testng.Assert.assertTrue(Assert.java:53)
+at com.hrm.qa.testcases.HolidaysPageTest.verifyResultsTablePerFilterDates(HolidaysPageTest.java:52)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:766)
+at org.testng.TestRunner.run(TestRunner.java:587)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+at org.testng.TestNG.runSuites(TestNG.java:1039)
+at org.testng.TestNG.run(TestNG.java:1007)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyEditHoiliday -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.hrm.qa.testcases.ConfigureHolidaysTest@78e67e0a]" name="tearDown" is-config="true" duration-ms="723" started-at="2020-06-03T19:24:29 PDT" finished-at="2020-06-03T19:24:30 PDT">
+        </test-method> <!-- verifyResultsTablePerFilterDates -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.hrm.qa.testcases.HolidaysPageTest@4b553d26]" name="tearDown" is-config="true" duration-ms="724" started-at="2020-06-06T08:24:20 PDT" finished-at="2020-06-06T08:24:20 PDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.hrm.qa.testcases.ConfigureHolidaysTest -->
+      </class> <!-- com.hrm.qa.testcases.HolidaysPageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -21,19 +21,19 @@ public class DashboardPageTest extends BaseClass{
 	
 	@BeforeMethod
 	public void setUp() {
-		BaseClass.launchBrowser();
+		launchBrowser();
 		loginPage = new LoginPage();
 		dashboardPage = new DashboardPage();
 		
 	}
-	@Test
+	//@Test
 	public void validateUser() {
 		loginPage.goToWebsite();
 		loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
 		String currentUserName = dashboardPage.currentUser();
 		Assert.assertEquals(currentUserName, "Welcome Admin");
 	}
-	@Test
+	//@Test
 	public void clickAssignLeaveLink() {
 		loginPage.goToWebsite();
 		loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
@@ -41,6 +41,15 @@ public class DashboardPageTest extends BaseClass{
 		String currentURL = driver.getCurrentUrl();
 		Assert.assertEquals(currentURL, "https://opensource-demo.orangehrmlive.com/index.php/leave/assignLeave");
 	}
+	
+	@Test
+	public void navigateToHolidaysPage() {
+		loginPage.goToWebsite();
+		loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
+		dashboardPage.goToHoildaysPage();
+		String url = driver.getCurrentUrl();
+		Assert.assertEquals(url, "https://opensource-demo.orangehrmlive.com/index.php/leave/viewHolidayList");
+ 	}
 	
 	@AfterMethod
 	public void tearDown() {

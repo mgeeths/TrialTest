@@ -21,6 +21,12 @@ public class DashboardPage extends BaseClass {
 	@FindBy(id="menu_leave_viewLeaveModule")
 	WebElement leaveTab;
 	
+	@FindBy(id = "menu_leave_Configure")
+	WebElement configureTab;
+
+	@FindBy(linkText = "Holidays")
+	WebElement holidaysLink;
+	
 	public DashboardPage() {
 		PageFactory.initElements(driver, this);
 	}
@@ -46,5 +52,13 @@ public class DashboardPage extends BaseClass {
 	public LeaveListPage goToLeaveList() {
 		viewLeaveList.click();
 		return new LeaveListPage();
+	}
+	
+	public HolidaysPage goToHoildaysPage() {
+		mouseOver(leaveTab);
+		mouseOver(configureTab);
+		mouseOver(holidaysLink);
+		holidaysLink.click();
+		return new HolidaysPage();
 	}
 }

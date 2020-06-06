@@ -7,8 +7,11 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
+
 import com.hrm.qa.util.UtilClass;
 
 public class BaseClass {
@@ -43,5 +46,10 @@ public class BaseClass {
 		driver.manage().timeouts().implicitlyWait(UtilClass.IMPLICIT_WAIT, TimeUnit.SECONDS);
 		//driver.get(prop.getProperty("url"));
 
+	}
+	
+	public void mouseOver(WebElement element) {
+		Actions actions = new Actions(driver);
+		actions.moveToElement(element).build().perform();
 	}
 }

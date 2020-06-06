@@ -33,13 +33,7 @@ public class LeaveListPageTest extends BaseClass {
 		loginPage.goToWebsite();
 		loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
 		dashboardPage.goToLeaveList();
-		/*
-		dashboardPage.goToAssignLeave();
-		assignLeavePage.enterAllInputFields();
-		assignLeavePage.clickAssignBtn();
-		assignLeavePage.successMsg();
-		assignLeavePage.goToLeaveListPage();
-		*/
+		
 	}
 
 	// @Test
