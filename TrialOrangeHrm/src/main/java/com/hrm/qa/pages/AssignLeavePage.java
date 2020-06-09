@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -21,6 +20,27 @@ public class AssignLeavePage extends BaseClass{
 		
 		@FindBy(id="assignleave_txtEmployee_empName")
 		WebElement empNameField;
+		
+		@FindBy(id="assignleave_txtLeaveType")
+		WebElement leaveType;
+		
+		@FindBy(id = "assignleave_txtFromDate")
+		WebElement fromDateEle;
+		
+		@FindBy(id = "assignleave_txtToDate")
+		WebElement toDateEle;
+		
+		@FindBy(id="assignleave_duration_duration")
+		WebElement durationField;
+		
+		@FindBy(id="assignleave_duration_ampm")
+		WebElement ampmDuration;
+		
+		@FindBy(id="assignleave_duration_time_from")
+		WebElement specificFromTime;
+		
+		@FindBy(id="assignleave_duration_time_to")
+		WebElement specificToTime;
 		
 		@FindBy(id="leaveBalance_details_link")
 		WebElement leaveBalLink;
@@ -120,20 +140,64 @@ public class AssignLeavePage extends BaseClass{
 
 	public void enterAllInputFields() {
 		empNameField.sendKeys(prop.getProperty("empName"));
-		Select select = new Select(driver.findElement(By.id("assignleave_txtLeaveType")));
+		Select select = new Select(leaveType);
 		select.selectByVisibleText("Vacation US");
-		WebElement fromDateEle = driver.findElement(By.id("assignleave_txtFromDate"));
+		
 		fromDateEle.clear();
 		fromDateEle.sendKeys(prop.getProperty("leaveFromDate"));
-		WebElement fromToEle = driver.findElement(By.id("assignleave_txtToDate"));
-		fromToEle.clear();
-		fromToEle.sendKeys(prop.getProperty("leaveToDate"));
-		fromToEle.sendKeys(Keys.ENTER);
-		commentsBox.sendKeys(prop.getProperty("empName") + " is going on leave from " + prop.getProperty("leaveFromDate") + " to " + prop.getProperty("leaveToDate"));
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+	
+		toDateEle.clear();
+		toDateEle.sendKeys(prop.getProperty("leaveToDate"));
+		toDateEle.sendKeys(Keys.ENTER);
+		commentsBox.sendKeys(prop.getProperty("empName") + " is going on leave from " 
+		+ prop.getProperty("leaveFromDate") + " to " + prop.getProperty("leaveToDate"));
+		
 	}
+	
+	public void assignHalfDayLeave() {
+		empNameField.sendKeys(prop.getProperty("empName"));
+		Select select = new Select(leaveType);
+		select.selectByVisibleText("Maternity US");
+		
+		fromDateEle.clear();
+		fromDateEle.sendKeys(prop.getProperty("leaveFromDate"));
+		fromDateEle.sendKeys(Keys.ENTER);
+		durationField.click();
+		Select select1 = new Select(durationField);
+		select1.selectByVisibleText("Half Day");
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+		wait.until(ExpectedConditions.visibilityOfAllElements(ampmDuration));
+		ampmDuration.click();
+		Select select2 = new Select(ampmDuration);
+		select2.selectByVisibleText("Afternoon");
+		
+		commentsBox.sendKeys(prop.getProperty("empName") + " is going on half day leave on " 
+				+ prop.getProperty("leaveFromDate"));
+		assignBtn.click();
+	
+		}
+	
+	public void assignSpecificTimeLeave() throws InterruptedException {
+		empNameField.sendKeys(prop.getProperty("empName"));
+		Select select = new Select(leaveType);
+		select.selectByVisibleText("FMLA US");
+		
+		fromDateEle.clear();
+		fromDateEle.sendKeys(prop.getProperty("leaveFromDate"));
+		fromDateEle.sendKeys(Keys.ENTER);
+		durationField.click();
+		Select select1 = new Select(durationField);
+		select1.selectByVisibleText("Specify Time");
+		WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(2));
+		wait1.until(ExpectedConditions.visibilityOfAllElements(specificFromTime));
+		Select select2 = new Select(specificFromTime);
+		select2.selectByVisibleText("09:30");
+		Select select3 = new Select(specificToTime);
+		select3.selectByVisibleText("13:00");
+		Thread.sleep(3000);
+		commentsBox.sendKeys(prop.getProperty("empName") + " is going on specific time leave on  " 
+				+ prop.getProperty("leaveFromDate"));
+		assignBtn.click();
+	
+		}
 }

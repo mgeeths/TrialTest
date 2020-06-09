@@ -1,7 +1,11 @@
 package com.hrm.qa.testcases;
 
+import java.text.ParseException;
+
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -21,73 +25,84 @@ public class LeaveListPageTest extends BaseClass {
 	public LeaveListPageTest() {
 		super();
 	}
-
-	@BeforeMethod
+	
+	@BeforeClass
 	public void setUp() {
 		launchBrowser();
+
 		loginPage = new LoginPage();
 		dashboardPage = new DashboardPage();
 		assignLeavePage = new AssignLeavePage();
 		leaveListPage = new LeaveListPage();
-
+		
 		loginPage.goToWebsite();
 		loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
+	}
+
+	@BeforeMethod
+	public void loginToAppln() {
+		
 		dashboardPage.goToLeaveList();
 		
 	}
-
-	// @Test
-	public void enterEmpDetails() {
-		leaveListPage.enterEmpNameInFilter();
-		String name = leaveListPage.resultTableAllStatus();
-		Assert.assertEquals(name, prop.getProperty("empName"));
+	
+	@Test(priority=1)
+	public void validateDateFilter() throws ParseException {
+		leaveListPage.enterFromDateFilter();
+		leaveListPage.enterToDateFilter();
+		leaveListPage.leaveFilteredByFromDate();
 	}
 
-	// @Test
-	public void validateScheduledStatus() {
+
+	@Test(priority=2)
+	public void verifyEmpNameInResultTable() throws InterruptedException {
 		leaveListPage.enterEmpNameInFilter();
-		// leaveListPage.scheduledStatus();
+		Assert.assertTrue(leaveListPage.resultTableNameCol());
+		
+	}
+	
+	//@Test(priority=3)
+	public void valiadatePendingStatus() {
+		Assert.assertTrue(leaveListPage.pendingStatus());
+
+	}
+
+	@Test(priority=4)
+	public void validateScheduledStatus() {
 		Assert.assertTrue(leaveListPage.scheduledStatus());
 	}
 
-	// @Test
+	//@Test(priority=5)
 	public void valiadateTakenStatus() {
-		leaveListPage.enterEmpNameInFilter();
 		Assert.assertTrue(leaveListPage.takenStatus());
 
 	}
 
-	// @Test
-	public void valiadateBothStatus() {
-		leaveListPage.enterEmpNameInFilter();
+	//@Test(priority=6)
+	public void valiadateAllStatus() {
 		Assert.assertTrue(leaveListPage.allStatus());
 
 	}
 
-	//@Test
-	public void cancelLeaveAssigned() throws InterruptedException {
-		//leaveListPage.enterEmpNameInFilter();
-		Assert.assertTrue(leaveListPage.cancelStatus());
-	}
-	
-	//@Test
+	//@Test(priority=7)
 	public void verifyCancelLeave() throws InterruptedException {
 		leaveListPage.cancelOneAssignedLeave();
 	}
 	
-	//@Test
-	public void verifyCancelManyLeave() throws InterruptedException {
-		leaveListPage.cancelManyLeaveAssigned();
+	//@Test(priority=8)
+	public void validateCancelStatus() throws InterruptedException {
+		//leaveListPage.enterEmpNameInFilter();
+		Assert.assertTrue(leaveListPage.cancelStatus());
 	}
 	
-	@Test
-	public void chooseDateFromCalender() throws InterruptedException {
-		leaveListPage.enterFromDateFilter();
-		leaveListPage.enterToDateFilter();
-		Thread.sleep(2000);
-	}
-
+	
 	@AfterMethod
+	public void goBackToDashboardPage() throws InterruptedException {
+		Thread.sleep(2000);
+		dashboardPage.goToDashboardPage();
+	}
+	
+	@AfterClass
 	public void tearDown() {
 		driver.quit();
 	}

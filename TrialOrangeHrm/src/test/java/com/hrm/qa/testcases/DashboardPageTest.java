@@ -1,7 +1,9 @@
 package com.hrm.qa.testcases;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -19,39 +21,44 @@ public class DashboardPageTest extends BaseClass{
 		super();
 	}
 	
-	@BeforeMethod
+	@BeforeClass
 	public void setUp() {
 		launchBrowser();
 		loginPage = new LoginPage();
 		dashboardPage = new DashboardPage();
-		
-	}
-	//@Test
-	public void validateUser() {
+		}
+	
+	@BeforeMethod
+	public void loginToAppln() {
 		loginPage.goToWebsite();
 		loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
+	}
+	
+	@Test(priority=1)
+	public void validateUser() {
 		String currentUserName = dashboardPage.currentUser();
 		Assert.assertEquals(currentUserName, "Welcome Admin");
 	}
-	//@Test
+	@Test(priority=2)
 	public void clickAssignLeaveLink() {
-		loginPage.goToWebsite();
-		loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
 		assignLeavePage = dashboardPage.goToAssignLeave();
 		String currentURL = driver.getCurrentUrl();
 		Assert.assertEquals(currentURL, "https://opensource-demo.orangehrmlive.com/index.php/leave/assignLeave");
 	}
 	
-	@Test
+	@Test(priority=3)
 	public void navigateToHolidaysPage() {
-		loginPage.goToWebsite();
-		loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
 		dashboardPage.goToHoildaysPage();
 		String url = driver.getCurrentUrl();
 		Assert.assertEquals(url, "https://opensource-demo.orangehrmlive.com/index.php/leave/viewHolidayList");
  	}
 	
 	@AfterMethod
+	public void goBackToDashboardPage() {
+		dashboardPage.goToDashboardPage();
+	}
+	
+	@AfterClass
 	public void tearDown() {
 		driver.quit();
 	}

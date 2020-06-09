@@ -1,16 +1,26 @@
 package com.hrm.qa.pages;
 
+import java.time.Duration;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.hrm.qa.base.BaseClass;
 
 public class DashboardPage extends BaseClass {
 
 	//Page Factory
-	@FindBy(id="welcome")
+	@FindBy(linkText="Welcome Admin")
 	WebElement user;
+	
+	@FindBy(linkText="Logout")
+	WebElement logout;
+	
+	@FindBy(xpath="//a[@id='menu_dashboard_index']")
+	WebElement dashboardTab;
 	
 	@FindBy(xpath="//div[@class='quickLaunge']/a[@href='/index.php/leave/assignLeave']")
 	WebElement assignLeaveLink;
@@ -36,6 +46,19 @@ public class DashboardPage extends BaseClass {
 		String  name = user.getText();
 		System.out.println(name);
 		return name;
+	}
+	
+	public void logoutOfAppln() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(3));
+		wait.until(ExpectedConditions.elementToBeClickable(user));
+		user.click();
+		wait.until(ExpectedConditions.elementToBeClickable(logout));
+		logout.click();
+	}
+	
+	public DashboardPage goToDashboardPage() {
+		dashboardTab.click();
+		return new DashboardPage();
 	}
 	
 	public  AssignLeavePage goToAssignLeave() {

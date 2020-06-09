@@ -1,6 +1,8 @@
 package com.hrm.qa.testcases;
 
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -17,26 +19,47 @@ public class AssignLeavePageTest extends BaseClass {
 	public AssignLeavePageTest() {
 		super();
 	}
+	@BeforeClass
+	public void setUp() {
+		launchBrowser();
+		loginPage = new LoginPage();
+		dashboardPage = new DashboardPage();
+		assignLeavePage = new AssignLeavePage();
+		 
+		}
 	
 	@BeforeMethod
-	public void setUp() {
-		 launchBrowser();
-		 loginPage = new LoginPage();
-		 dashboardPage = new DashboardPage();
-		 assignLeavePage = new AssignLeavePage();
-		 
+	public void loginToAppln() {
 		 loginPage.goToWebsite();
 		 loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
 		 dashboardPage.goToAssignLeave();
-		 
-	}
-		@Test 
+		}
+	
+	@Test 
 	public void assignLeaveToEmp() {
 		assignLeavePage.enterAllInputFields();
 		assignLeavePage.clickAssignBtn();
 		assignLeavePage.successMsg();
 	}
+	
+	//@Test
+	public void verifyAssignHalfDayLeave() {
+		assignLeavePage.assignHalfDayLeave();
+		assignLeavePage.successMsg();
+	}
+	
+	//@Test
+	public void verifyAssignSpecificTimeLeave() throws InterruptedException {
+		assignLeavePage.assignSpecificTimeLeave();
+		assignLeavePage.successMsg();
+	}
+		
 	@AfterMethod
+	public void goBackToDashboardPage() {
+		dashboardPage.goToDashboardPage();
+	}
+	
+	@AfterClass
 	public void tearDown() {
 		driver.quit();
 	}

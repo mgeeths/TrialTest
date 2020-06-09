@@ -3,13 +3,16 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.hrm.qa.testcases.HolidaysPageTest">
+      <class name="com.hrm.qa.testcases.LeaveListPageTest">
         <methods>
+          <include name="verifyEmpNameInResultTable"/>
           <include name="setUp"/>
+          <include name="validateScheduledStatus"/>
+          <include name="goBackToDashboardPage"/>
+          <include name="loginToAppln"/>
           <include name="tearDown"/>
-          <include name="verifyResultsTablePerFilterDates"/>
         </methods>
-      </class> <!-- com.hrm.qa.testcases.HolidaysPageTest -->
+      </class> <!-- com.hrm.qa.testcases.LeaveListPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
