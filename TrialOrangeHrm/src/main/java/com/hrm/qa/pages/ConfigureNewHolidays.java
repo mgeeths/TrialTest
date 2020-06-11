@@ -1,0 +1,117 @@
+package com.hrm.qa.pages;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+
+import com.hrm.qa.base.BaseClass;
+
+public class ConfigureNewHolidays extends BaseClass {
+
+	// PageFactory
+	@FindBy(id = "menu_leave_Configure")
+	WebElement configureTab;
+
+	@FindBy(linkText = "Holidays")
+	WebElement holidaysLink;
+	
+	@FindBy(id = "holiday_description")
+	WebElement newHolidayName;
+
+	@FindBy(id = "holiday_date")
+	WebElement holidayDatePicker;
+
+	@FindBy(id = "holiday_recurring")
+	WebElement recurringChkbox;
+
+	@FindBy(id = "saveBtn")
+	WebElement saveBtn;
+
+	@FindBy(xpath = "//table[@id='resultTable']//tr[@class='odd']|//table[@id='resultTable']//tr[@class='even']")
+	List<WebElement> allRows;
+
+	@FindBy(id = "holiday_length")
+	WebElement selectLengthField;
+
+	public ConfigureNewHolidays() {
+		PageFactory.initElements(driver, this);
+	}
+
+	// Actions
+	
+	public void createNewHoliday() throws InterruptedException {
+		newHolidayName.sendKeys(prop.getProperty("holidayName"));
+		holidayDatePicker.clear();
+		holidayDatePicker.sendKeys(prop.getProperty("holidayDate"));
+		holidayDatePicker.sendKeys(Keys.ENTER);
+		String date = holidayDatePicker.getText();
+		System.out.println(date);
+		recurringChkbox.click();
+		saveBtn.click();
+		Thread.sleep(2000);
+	}
+
+	public void resultTableData() {
+		// boolean flag = false;
+		for (WebElement eachRow : allRows) {
+			List<WebElement> allCols = eachRow.findElements(By.xpath("./td"));
+			String name = allCols.get(1).getText();
+			System.out.println(name);
+			if (name.equals(prop.getProperty("holidayName"))) {
+				String holiDate = allCols.get(2).getText();
+				String lengthDay = allCols.get(3).getText();
+				String repeatiton = allCols.get(4).getText();
+				System.out.println(holiDate);
+				System.out.println(lengthDay);
+				System.out.println(repeatiton);
+				Assert.assertTrue(holiDate.equals(prop.getProperty("holidayDate")), "Date entered is " + holiDate);
+				Assert.assertTrue(lengthDay.equals("Full Day"), "Day entered is " + lengthDay);
+				Assert.assertTrue(repeatiton.equals("Yes"), "Day entered is " + repeatiton);
+				break;
+			}
+
+		}
+	}
+/*editHoliday function will return two string values. So to return them, declare a List<String> 
+ * variable results. This declaration is done before the second for loop, as the list will be 
+ * created only there. 
+ */
+	public List<String> editHoliday() {
+		for (WebElement eachRow : allRows) {
+			List<WebElement> allCols = eachRow.findElements(By.xpath("./td"));
+			String name = allCols.get(1).getText();
+			if (name.equals(prop.getProperty("holidayName"))) {
+				allCols.get(1).findElement(By.tagName("a")).click();
+				String url = driver.getCurrentUrl();
+				Assert.assertTrue(url
+						.contains("https://opensource-demo.orangehrmlive.com/index.php/leave/defineHoliday?hdnEditId"));
+				recurringChkbox.click();
+				Select select = new Select(selectLengthField);
+				select.selectByVisibleText("Half Day");
+				saveBtn.click();
+				break;
+			}
+		}
+		List<String> results = new ArrayList<>();
+		for (WebElement eachRow : allRows) {
+			List<WebElement> allCols = eachRow.findElements(By.xpath("./td"));
+			String name = allCols.get(1).getText();
+			if (name.equals(prop.getProperty("holidayName"))) {
+				String lengthOfHoliday = allCols.get(3).getText();
+				results.add(lengthOfHoliday);
+				String repetition = allCols.get(4).getText();
+				results.add(repetition);
+
+			}
+		}
+		return results;
+	}
+}

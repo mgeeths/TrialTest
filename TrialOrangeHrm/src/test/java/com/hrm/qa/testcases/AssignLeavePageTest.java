@@ -10,12 +10,13 @@ import com.hrm.qa.base.BaseClass;
 import com.hrm.qa.pages.AssignLeavePage;
 import com.hrm.qa.pages.DashboardPage;
 import com.hrm.qa.pages.LoginPage;
+import com.hrm.qa.util.Xls_Reader;
 
 public class AssignLeavePageTest extends BaseClass {
 	LoginPage loginPage;
 	DashboardPage dashboardPage;
 	AssignLeavePage assignLeavePage;
-	
+	//Xls_Reader xlsReader;
 	public AssignLeavePageTest() {
 		super();
 	}
@@ -25,7 +26,8 @@ public class AssignLeavePageTest extends BaseClass {
 		loginPage = new LoginPage();
 		dashboardPage = new DashboardPage();
 		assignLeavePage = new AssignLeavePage();
-		 
+		//xlsReader = new Xls_Reader("C://Users//browse//Automation//TrialOrangeHrm//src//main//java//com//hrm//qa//testdata//Trial Orange Hrm Test Data.xlsx");
+		
 		}
 	
 	@BeforeMethod
@@ -35,13 +37,17 @@ public class AssignLeavePageTest extends BaseClass {
 		 dashboardPage.goToAssignLeave();
 		}
 	
-	@Test 
+	//@Test 
 	public void assignLeaveToEmp() {
 		assignLeavePage.enterAllInputFields();
 		assignLeavePage.clickAssignBtn();
 		assignLeavePage.successMsg();
 	}
 	
+	@Test 
+	public void assignLeaveToEmpFromExcelFile() throws InterruptedException {
+		assignLeavePage.enterAllInputFieldsFromXcelFile();
+	}
 	//@Test
 	public void verifyAssignHalfDayLeave() {
 		assignLeavePage.assignHalfDayLeave();

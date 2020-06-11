@@ -14,123 +14,128 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import com.hrm.qa.base.BaseClass;
+import com.hrm.qa.util.Xls_Reader;
 
-public class AssignLeavePage extends BaseClass{	
-		//Page Factory
-		
-		@FindBy(id="assignleave_txtEmployee_empName")
-		WebElement empNameField;
-		
-		@FindBy(id="assignleave_txtLeaveType")
-		WebElement leaveType;
-		
-		@FindBy(id = "assignleave_txtFromDate")
-		WebElement fromDateEle;
-		
-		@FindBy(id = "assignleave_txtToDate")
-		WebElement toDateEle;
-		
-		@FindBy(id="assignleave_duration_duration")
-		WebElement durationField;
-		
-		@FindBy(id="assignleave_duration_ampm")
-		WebElement ampmDuration;
-		
-		@FindBy(id="assignleave_duration_time_from")
-		WebElement specificFromTime;
-		
-		@FindBy(id="assignleave_duration_time_to")
-		WebElement specificToTime;
-		
-		@FindBy(id="leaveBalance_details_link")
-		WebElement leaveBalLink;
-		
-		@FindBy(id="assignleave_txtComment")
-		WebElement commentsBox;
-		
-		@FindBy(id="assignBtn")
-		WebElement assignBtn;
-		
-		@FindBy(id="confirmCancelButton")
-		WebElement cancelLeaveBtn;
-		
-		@FindBy(id="confirmOkButton")
-		WebElement confirmLeaveBtn;
-		
-		@FindBy(id="menu_leave_viewLeaveList")
-		WebElement leaveListLink;
-		
+public class AssignLeavePage extends BaseClass {
+	Xls_Reader xlsReader;
+	// Page Factory
+
+	@FindBy(id = "assignleave_txtEmployee_empName")
+	WebElement empNameField;
+
+	@FindBy(id = "assignleave_txtLeaveType")
+	WebElement leaveType;
+
+	@FindBy(id = "assignleave_txtFromDate")
+	WebElement fromDateEle;
+
+	@FindBy(id = "assignleave_txtToDate")
+	WebElement toDateEle;
+
+	@FindBy(id = "assignleave_duration_duration")
+	WebElement durationField;
+
+	@FindBy(id = "assignleave_duration_ampm")
+	WebElement ampmDuration;
+
+	@FindBy(id = "assignleave_duration_time_from")
+	WebElement specificFromTime;
+
+	@FindBy(id = "assignleave_duration_time_to")
+	WebElement specificToTime;
+
+	@FindBy(id = "leaveBalance_details_link")
+	WebElement leaveBalLink;
+
+	@FindBy(id = "assignleave_txtComment")
+	WebElement commentsBox;
+
+	@FindBy(id = "assignBtn")
+	WebElement assignBtn;
+
+	@FindBy(id = "confirmCancelButton")
+	WebElement cancelLeaveBtn;
+
+	@FindBy(id = "confirmOkButton")
+	WebElement confirmLeaveBtn;
+
+	@FindBy(id = "menu_leave_viewLeaveList")
+	WebElement leaveListLink;
 
 	public AssignLeavePage() {
 		PageFactory.initElements(driver, this);
-		}
-	
+		xlsReader = new Xls_Reader(
+				"C://Users//browse//Automation//TrialOrangeHrm//src//main//java//com//hrm//qa//testdata//Trial Orange Hrm Test Data.xlsx");
+
+	}
+
 	public void enterEmpName() {
 		empNameField.sendKeys(prop.getProperty("empName"));
 	}
-	
+
 	public void selectLeaveType() {
 		Select select = new Select(driver.findElement(By.id("assignleave_txtLeaveType")));
 		select.selectByVisibleText("Vacation US");
 	}
-	
+
 	public void chooseFromDate() {
-		
+
 		WebElement fromDateEle = driver.findElement(By.id("assignleave_txtFromDate"));
 		driver.findElement(By.id("assignleave_txtFromDate")).click();
-		JavascriptExecutor js =((JavascriptExecutor)driver);
-		//js.executeScript("document.getElementById('assignleave_txtFromDate').removeAttribute('readonly')");
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		// js.executeScript("document.getElementById('assignleave_txtFromDate').removeAttribute('readonly')");
 		fromDateEle.clear();
 		js.executeScript("document.getElementById('assignleave_txtFromDate').setAttribute('value','2020-05-30');");
-		//js.executeScript("arguments[0].setAttribute('value','2020-06-13');",fromDateEle);
+		// js.executeScript("arguments[0].setAttribute('value','2020-06-13');",fromDateEle);
 		String fromDate = fromDateEle.getText();
 		System.out.println(fromDate);
-	} 
-	
+	}
+
 	public void enterFromDate() {
 		WebElement fromDateEle = driver.findElement(By.id("assignleave_txtFromDate"));
 		fromDateEle.clear();
 		fromDateEle.sendKeys(prop.getProperty("leaveFromDate"));
-		
+
 	}
-	
+
 	public void enterToDate() {
 		WebElement fromToEle = driver.findElement(By.id("assignleave_txtToDate"));
 		fromToEle.clear();
 		fromToEle.sendKeys(prop.getProperty("leaveToDate"));
 		fromToEle.sendKeys(Keys.ENTER);
-		
+
 	}
+
 	public void chooseToDate() {
 		driver.findElement(By.id("assignleave_txtToDate")).click();
-		JavascriptExecutor js =((JavascriptExecutor)driver);
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
 		js.executeScript("document.getElementById('assignleave_txtToDate').setAttribute('value','2020-06-30')");
 
 	}
-	
+
 	public void enterComments() {
-		//@SuppressWarnings("deprecation")
-		//WebDriverWait wait = new WebDriverWait(driver, 10);
+		// @SuppressWarnings("deprecation")
+		// WebDriverWait wait = new WebDriverWait(driver, 10);
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.elementToBeClickable(leaveBalLink));
 		commentsBox.sendKeys("Jasmine Morgan is going on leave in July sfhsfhgshsfbzcvz");
 		System.out.println(commentsBox.getText());
 	}
-	
+
 	public void clickAssignBtn() {
 		assignBtn.click();
-		//cancelLeaveBtn.click();
+		// cancelLeaveBtn.click();
 		confirmLeaveBtn.click();
-		}
-	
+	}
+
 	public void successMsg() {
 		String bodyText = driver.findElement(By.tagName("body")).getText();
-		Assert.assertTrue( bodyText.contains("Successfully Assigned"),"Msg not displayed");
+		Assert.assertTrue(bodyText.contains("Successfully Assigned"), "Msg not displayed");
 	}
-	
+
 	public LeaveListPage goToLeaveListPage() {
-		//leaveListLink.click();
-		JavascriptExecutor js = ((JavascriptExecutor)driver);
+		// leaveListLink.click();
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
 		js.executeScript("arguments[0].click();", leaveListLink);
 
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -142,23 +147,23 @@ public class AssignLeavePage extends BaseClass{
 		empNameField.sendKeys(prop.getProperty("empName"));
 		Select select = new Select(leaveType);
 		select.selectByVisibleText("Vacation US");
-		
+
 		fromDateEle.clear();
 		fromDateEle.sendKeys(prop.getProperty("leaveFromDate"));
-	
+
 		toDateEle.clear();
 		toDateEle.sendKeys(prop.getProperty("leaveToDate"));
 		toDateEle.sendKeys(Keys.ENTER);
-		commentsBox.sendKeys(prop.getProperty("empName") + " is going on leave from " 
-		+ prop.getProperty("leaveFromDate") + " to " + prop.getProperty("leaveToDate"));
-		
+		commentsBox.sendKeys(prop.getProperty("empName") + " is going on leave from "
+				+ prop.getProperty("leaveFromDate") + " to " + prop.getProperty("leaveToDate"));
+
 	}
-	
+
 	public void assignHalfDayLeave() {
 		empNameField.sendKeys(prop.getProperty("empName"));
 		Select select = new Select(leaveType);
 		select.selectByVisibleText("Maternity US");
-		
+
 		fromDateEle.clear();
 		fromDateEle.sendKeys(prop.getProperty("leaveFromDate"));
 		fromDateEle.sendKeys(Keys.ENTER);
@@ -170,18 +175,18 @@ public class AssignLeavePage extends BaseClass{
 		ampmDuration.click();
 		Select select2 = new Select(ampmDuration);
 		select2.selectByVisibleText("Afternoon");
-		
-		commentsBox.sendKeys(prop.getProperty("empName") + " is going on half day leave on " 
-				+ prop.getProperty("leaveFromDate"));
+
+		commentsBox.sendKeys(
+				prop.getProperty("empName") + " is going on half day leave on " + prop.getProperty("leaveFromDate"));
 		assignBtn.click();
-	
-		}
-	
+
+	}
+
 	public void assignSpecificTimeLeave() throws InterruptedException {
 		empNameField.sendKeys(prop.getProperty("empName"));
 		Select select = new Select(leaveType);
 		select.selectByVisibleText("FMLA US");
-		
+
 		fromDateEle.clear();
 		fromDateEle.sendKeys(prop.getProperty("leaveFromDate"));
 		fromDateEle.sendKeys(Keys.ENTER);
@@ -195,9 +200,56 @@ public class AssignLeavePage extends BaseClass{
 		Select select3 = new Select(specificToTime);
 		select3.selectByVisibleText("13:00");
 		Thread.sleep(3000);
-		commentsBox.sendKeys(prop.getProperty("empName") + " is going on specific time leave on  " 
+		commentsBox.sendKeys(prop.getProperty("empName") + " is going on specific time leave on  "
 				+ prop.getProperty("leaveFromDate"));
 		assignBtn.click();
-	
+
+	}
+
+	public void enterAllInputFieldsFromXcelFile() throws InterruptedException {
+		int rowCount = xlsReader.getRowCount("AssignLeaveDetails");
+		for (int rowNum = 2; rowNum <= rowCount; rowNum++) {
+			String empName = xlsReader.getCellData("AssignLeaveDetails", "EmployeeName", rowNum);
+			System.out.println(empName);
+			empNameField.clear();
+			empNameField.sendKeys(empName);
+
+			String typeOfLeave = xlsReader.getCellData("AssignLeaveDetails", "TypeOfLeave", rowNum);
+			System.out.println(typeOfLeave);
+			Select select = new Select(leaveType);
+			select.selectByVisibleText(typeOfLeave);
+
+			fromDateEle.clear();
+
+			String leaveFromDate = xlsReader.getCellData("AssignLeaveDetails", "StringLeaveFromDate", rowNum);
+			System.out.println(leaveFromDate);
+			fromDateEle.clear();
+			fromDateEle.sendKeys(leaveFromDate);
+
+			toDateEle.clear();
+			String leaveToDate = xlsReader.getCellData("AssignLeaveDetails", "StringLeaveToDate", rowNum);
+			System.out.println(leaveToDate);
+			toDateEle.clear();
+			toDateEle.sendKeys(leaveToDate);
+			toDateEle.sendKeys(Keys.ENTER);
+			commentsBox.clear();
+			commentsBox.sendKeys(empName + " is going on leave from "
+					+ leaveFromDate + " to " + leaveToDate);
+
+			JavascriptExecutor js = ((JavascriptExecutor) driver);
+			js.executeScript("arguments[0].click();", assignBtn);
+			//assignBtn.click();
+			WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5));
+			wait.until(ExpectedConditions.presenceOfElementLocated(By.id("confirmOkButton")));
+			js.executeScript("arguments[0].click();", confirmLeaveBtn);
+
+			//confirmLeaveBtn.click();
+
+			String bodyText = driver.findElement(By.tagName("body")).getText();
+			Assert.assertTrue(bodyText.contains("Successfully Assigned"), "Msg not displayed");
+			
+			Thread.sleep(2000);
+
 		}
+	}
 }

@@ -3,6 +3,7 @@ package com.hrm.qa.pages;
 import java.time.Duration;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -14,7 +15,16 @@ public class DashboardPage extends BaseClass {
 
 	//Page Factory
 	@FindBy(linkText="Welcome Admin")
-	WebElement user;
+	WebElement userName;
+	
+	@FindBy(id="menu_admin_viewAdminModule")
+	WebElement adminTab;
+	
+	@FindBy(id="menu_admin_UserManagement")
+	WebElement userManagement;
+	
+	@FindBy(id="menu_admin_viewSystemUsers")
+	WebElement usersTab;
 	
 	@FindBy(linkText="Logout")
 	WebElement logout;
@@ -43,15 +53,16 @@ public class DashboardPage extends BaseClass {
 	
 	//Actions
 	public String currentUser() {
-		String  name = user.getText();
+		String  name = userName.getText();
 		System.out.println(name);
 		return name;
 	}
 	
+	
 	public void logoutOfAppln() throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(3));
-		wait.until(ExpectedConditions.elementToBeClickable(user));
-		user.click();
+		wait.until(ExpectedConditions.elementToBeClickable(userName));
+		userName.click();
 		wait.until(ExpectedConditions.elementToBeClickable(logout));
 		logout.click();
 	}
@@ -61,6 +72,15 @@ public class DashboardPage extends BaseClass {
 		return new DashboardPage();
 	}
 	
+	public UsersPage goToUsersPage() {
+		Actions action = new Actions(driver);
+		action.moveToElement(adminTab).build().perform();	
+		action.moveToElement(userManagement).build().perform();	
+		action.moveToElement(usersTab).build().perform();	
+		usersTab.click();
+		return new UsersPage();
+		
+	}
 	public  AssignLeavePage goToAssignLeave() {
 		assignLeaveLink.click();
 		//String currentPage = driver.getCurrentUrl();
