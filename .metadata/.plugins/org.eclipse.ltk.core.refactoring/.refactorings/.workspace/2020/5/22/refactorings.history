@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;AutomateOrangeHrm&apos;" deleteContents="false" description="Delete resource &apos;AutomateOrangeHrm&apos;" element1="/AutomateOrangeHrm" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1590420162168"/>
+</session>

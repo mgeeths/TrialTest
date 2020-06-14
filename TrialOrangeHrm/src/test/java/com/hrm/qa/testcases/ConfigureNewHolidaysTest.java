@@ -5,6 +5,7 @@ import java.util.List;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -24,16 +25,20 @@ public class ConfigureNewHolidaysTest extends BaseClass {
 		super();
 	}
 
-	@BeforeMethod
+	@BeforeClass
 	public void setUp() {
 		launchBrowser();
 		loginPage = new LoginPage();
 		dashboardPage = new DashboardPage();
 		holidaysPage = new HolidaysPage();
 		configureHolidays = new ConfigureNewHolidays();
-
 		loginPage.goToWebsite();
 		loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
+	}
+	
+	@BeforeMethod
+	public void loginToAppln() {
+		
 		dashboardPage.goToHoildaysPage();
 		holidaysPage.goToConfigureNewHolidayPage();
 	}
@@ -67,7 +72,7 @@ public class ConfigureNewHolidaysTest extends BaseClass {
 
 	@AfterMethod
 	public void logoutofAppln() throws InterruptedException {
-		dashboardPage.logoutOfAppln();
+		dashboardPage.goToDashboardPage();
 	}
 	
 	@AfterClass

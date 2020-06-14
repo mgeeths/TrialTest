@@ -1,0 +1,76 @@
+package com.hrm.qa.testcases;
+
+import java.util.List;
+
+import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+import com.hrm.qa.base.BaseClass;
+import com.hrm.qa.pages.ConfigureNewHolidays;
+import com.hrm.qa.pages.DashboardPage;
+import com.hrm.qa.pages.HolidaysPage;
+import com.hrm.qa.pages.LoginPage;
+
+public class ConfigureNewHolidaysTest extends BaseClass {
+	DashboardPage dashboardPage;
+	LoginPage loginPage;
+	HolidaysPage holidaysPage;
+	ConfigureNewHolidays configureHolidays;
+
+	public ConfigureNewHolidaysTest() {
+		super();
+	}
+
+	@BeforeMethod
+	public void setUp() {
+		launchBrowser();
+		loginPage = new LoginPage();
+		dashboardPage = new DashboardPage();
+		holidaysPage = new HolidaysPage();
+		configureHolidays = new ConfigureNewHolidays();
+
+		loginPage.goToWebsite();
+		loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
+		holidaysPage.goToConfigureHolidayPage();
+	}
+
+	@Test
+	public void defineNewHoliday() throws InterruptedException {
+		// configureHolidays.navToConfigureHolidays();
+		configureHolidays.createNewHoliday();
+	}
+
+	// @Test
+	public void verifyresultTableData() throws InterruptedException {
+		// configureHolidays.navToConfigureHolidays();
+		configureHolidays.createNewHoliday();
+		Thread.sleep(2000);
+		configureHolidays.resultTableData();
+	}
+	/*The function returns two string variables. The assertions of these should be done in this 
+	 * function. To access these values, use .get method. Before asserting the values, the total 
+	 * number of values returned has to be asserted (to make sure that there are two items 
+	 * returned by the edit function. Otherwise, it will lead to null point exception. ie If for
+	 * some reason, the called function (editHoliday) does not return two values, then in this 
+	 * function, nothing is verified and the assertTrue will give a null point exception and we
+	 * won't know where the error happened. With the verificaton of the size of the list, the 
+	 * assertion will fail and we will know clearly that the function did not return two items.   
+	 */
+
+	//@Test
+	public void verifyEditHoiliday() throws InterruptedException {
+		configureHolidays.createNewHoliday();
+		List<String> resultTable = configureHolidays.editHoliday();
+		Assert.assertEquals(resultTable.size(),2);
+		Assert.assertEquals(resultTable.get(0), "Half Day");
+		Assert.assertEquals(resultTable.get(1), "No");
+
+	}
+
+	@AfterMethod
+	public void tearDown() {
+		driver.quit();
+	}
+}

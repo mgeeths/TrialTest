@@ -1,0 +1,9 @@
+package com.hrm.qa.testcases;
+
+public class HolidaysPageTest {
+
+	public HolidaysPageTest() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

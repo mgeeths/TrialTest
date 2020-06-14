@@ -3,17 +3,20 @@ package com.hrm.qa.pages;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
+//import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import com.hrm.qa.base.BaseClass;
@@ -110,19 +113,23 @@ public class LeaveListPage extends BaseClass {
 	public void enterEmpNameInFilter() throws InterruptedException {
 		
 		JavascriptExecutor js = ((JavascriptExecutor) driver);
-		js.executeScript("arguments[0].click();", allCheckbox);
-		js.executeScript("arguments[0].click();", empNameField);
-
-		empNameField.clear();
+		if (! allCheckbox.isSelected()) {
+			js.executeScript("arguments[0].click();", allCheckbox);
+		}
+		js.executeScript("arguments[0].value = '';", empNameField);
+		empNameField.click();
 		empNameField.sendKeys(prop.getProperty("empName"));
-		searchBtn.click();
-		Thread.sleep(2000);
-
+		js.executeScript("arguments[0].click();", searchBtn);
+		//searchBtn.click();
+		Thread.sleep(3000);
+		//WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(3));
+		//wait.until(ExpectedConditions.textToBePresentInElementValue(locator, text))
 	}
 
 	public boolean resultTableNameCol() {
-
+	
 		boolean flag = allRows.size() > 0;
+		
 		for (int i = 0; i < allRows.size(); i++) {
 			List<WebElement> nameCol = allRows.get(i).findElements(By.xpath("./td"));
 			String name = nameCol.get(1).getText();
@@ -402,7 +409,7 @@ public class LeaveListPage extends BaseClass {
 	public boolean leaveFilteredByFromDate() throws ParseException {
 		
 		allCheckbox.click();
-		empNameField.sendKeys(prop.getProperty("empName"));
+		//empNameField.sendKeys(prop.getProperty("empName"));
 		searchBtn.click();
 		
 		DateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);

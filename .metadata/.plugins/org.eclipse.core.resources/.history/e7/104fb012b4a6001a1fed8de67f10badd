@@ -1,0 +1,81 @@
+package com.hrm.qa.pages;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+
+import com.hrm.qa.base.BaseClass;
+
+public class HolidaysPage extends BaseClass {
+	// PageFactory
+	@FindBy(xpath = "//input[@id='calFromDate']")
+	WebElement fromDateField;
+
+	@FindBy(xpath = "//input[@id='calToDate']")
+	WebElement toDateField;
+
+	@FindBy(id = "btnAdd")
+	WebElement addBtn;
+
+	@FindBy(id = "btnDelete")
+	WebElement deleteBtn;
+
+	@FindBy(xpath = "//table[@id='resultTable']//tr[@class='odd']|//table[@id='resultTable']//tr[@class='even']")
+	List<WebElement> allRows;
+	
+	@FindBy(xpath="//input[@value='Cancel']")
+	WebElement cancelDelete;
+	
+	@FindBy(xpath="//input[@id='dialogDeleteBtn']")
+	WebElement okDeleteBtn;
+
+	public HolidaysPage() {
+		PageFactory.initElements(driver, this);
+	}
+
+	// Actions
+	public List<String> enterDateFields() throws InterruptedException {
+		List<String> dateFilterValues = new ArrayList<>();
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		js.executeScript("document.getElementById('calFromDate').setAttribute('value','2020-02-01')");
+		Thread.sleep(2000);
+		String FromDate = fromDateField.getAttribute("value");
+		dateFilterValues.add(FromDate);
+		System.out.println(FromDate);
+		js.executeScript("document.getElementById('calToDate').setAttribute('value','2020-12-31')");
+		Thread.sleep(2000);
+		String ToDate = toDateField.getAttribute("value");
+		dateFilterValues.add(ToDate);
+		System.out.println(ToDate);
+		return dateFilterValues;
+	}
+
+	public ConfigureNewHolidays goToConfigureNewHolidayPage() {
+		addBtn.click();
+		return new ConfigureNewHolidays();
+	}
+
+	public void deleteHoliday() throws InterruptedException {
+		Thread.sleep(2000);
+		for (WebElement eachRow : allRows) {
+			List<WebElement> allCols = eachRow.findElements(By.xpath("./td"));
+			String name = allCols.get(1).getText();
+			if (name.equals("Diwali")) {
+				allCols.get(0).findElement(By.xpath("./input[@type='checkbox']")).click();
+				break;
+			}
+		}
+		deleteBtn.click();
+		cancelDelete.click();
+		Thread.sleep(2000);
+		//Assert.assertTrue(driver.findElement(By.tagName("body")).getText().contains("Successfully Updated"));
+		
+	}
+
+}

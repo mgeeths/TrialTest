@@ -1,0 +1,46 @@
+package com.hrm.qa.pages;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import com.hrm.qa.base.BaseClass;
+
+public class HolidaysPage extends BaseClass {
+	// PageFactory
+	@FindBy(xpath = "//input[@id='calFromDate']")
+	WebElement fromDateField;
+
+	@FindBy(xpath = "//input[@id='calToDate']")
+	WebElement toDateField;
+	
+	@FindBy(id = "btnAdd")
+	WebElement addBtn;
+
+	public HolidaysPage() {
+		PageFactory.initElements(driver, this);
+		}
+		
+	// Actions
+	public void enterDateFields() throws InterruptedException {
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		js.executeScript("document.getElementById('calFromDate').setAttribute('value','2020-05-20')");
+		Thread.sleep(2000);
+		String FromDate = fromDateField.getAttribute("value");
+		System.out.println(FromDate);
+		js.executeScript("document.getElementById('calToDate').setAttribute('value','2020-12-31')");
+		Thread.sleep(2000);
+		String ToDate = toDateField.getAttribute("value");
+		System.out.println(ToDate);
+	}
+	
+	public ConfigureNewHolidays goToConfigureHolidayPage() {
+		addBtn.click();
+		return new ConfigureNewHolidays();
+	}
+
+	public void deleteHoliday() {
+		
+	}
+}

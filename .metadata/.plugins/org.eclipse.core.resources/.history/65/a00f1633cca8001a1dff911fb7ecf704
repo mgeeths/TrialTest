@@ -1,0 +1,109 @@
+package com.hrm.qa.testcases;
+
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+import com.hrm.qa.base.BaseClass;
+import com.hrm.qa.pages.AssignLeavePage;
+import com.hrm.qa.pages.DashboardPage;
+import com.hrm.qa.pages.LeaveListPage;
+import com.hrm.qa.pages.LoginPage;
+
+public class LeaveListPageTest extends BaseClass {
+	LoginPage loginPage;
+	DashboardPage dashboardPage;
+	AssignLeavePage assignLeavePage;
+
+	LeaveListPage leaveListPage;
+
+	public LeaveListPageTest() {
+		super();
+	}
+	
+	@BeforeClass
+	public void setUp() {
+		launchBrowser();
+
+		loginPage = new LoginPage();
+		dashboardPage = new DashboardPage();
+		assignLeavePage = new AssignLeavePage();
+		leaveListPage = new LeaveListPage();
+	}
+
+	@BeforeMethod
+	public void loginToAppln() {
+		loginPage.goToWebsite();
+		loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
+		dashboardPage.goToLeaveList();
+		
+	}
+	
+	@Test
+	public void chooseDateFromCalender() throws InterruptedException {
+		leaveListPage.enterFromDateFilter();
+		leaveListPage.enterToDateFilter();
+		Thread.sleep(2000);
+	}
+
+
+	@Test
+	public void verifyEmpNameInResultTable() {
+		leaveListPage.enterEmpNameInFilter();
+		Assert.assertTrue(leaveListPage.resultTableNameCol());
+		
+	}
+	
+	@Test
+	public void valiadatePendingStatus() {
+		Assert.assertTrue(leaveListPage.pendingStatus());
+
+	}
+
+	@Test
+	public void validateScheduledStatus() {
+		Assert.assertTrue(leaveListPage.scheduledStatus());
+	}
+
+	@Test
+	public void valiadateTakenStatus() {
+		Assert.assertTrue(leaveListPage.takenStatus());
+
+	}
+
+	@Test
+	public void valiadateAllStatus() {
+		Assert.assertTrue(leaveListPage.allStatus());
+
+	}
+
+	@Test
+	public void verifyCancelLeave() throws InterruptedException {
+		leaveListPage.cancelOneAssignedLeave();
+	}
+	
+	@Test
+	public void verifyCancelManyLeave() throws InterruptedException {
+		leaveListPage.cancelManyLeaveAssigned();
+	}
+	
+	@Test
+	public void cancelLeaveAssigned() throws InterruptedException {
+		//leaveListPage.enterEmpNameInFilter();
+		Assert.assertTrue(leaveListPage.cancelStatus());
+	}
+	
+	
+	@AfterMethod
+	public void goBackToDashboardPage() {
+		dashboardPage.goToDashboardPage();
+	}
+	
+	@AfterClass
+	public void tearDown() {
+		driver.quit();
+	}
+}

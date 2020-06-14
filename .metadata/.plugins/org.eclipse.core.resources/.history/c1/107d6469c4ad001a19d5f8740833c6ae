@@ -1,0 +1,48 @@
+package com.hrm.qa.testcases;
+
+import org.testng.annotations.BeforeClass;
+
+import com.hrm.qa.base.BaseClass;
+import com.hrm.qa.pages.AddEmpPage;
+import com.hrm.qa.pages.AddUserPage;
+import com.hrm.qa.pages.AssignLeavePage;
+import com.hrm.qa.pages.ConfigureNewHolidays;
+import com.hrm.qa.pages.DashboardPage;
+import com.hrm.qa.pages.EmpListPage;
+import com.hrm.qa.pages.HolidaysPage;
+import com.hrm.qa.pages.LeaveListPage;
+import com.hrm.qa.pages.LoginPage;
+import com.hrm.qa.pages.UsersPage;
+
+public class SmokeTestSuite extends BaseClass {
+	LoginPage loginPage;
+	DashboardPage dashboardPage;
+	AddUserPage addUserPage;
+	AddEmpPage addEmpPage;
+	AssignLeavePage assignLeavePage;
+	ConfigureNewHolidays configureNewHolidays;
+	EmpListPage empListPage;
+	HolidaysPage holidaysPage;
+	LeaveListPage leaveListPage;
+	UsersPage usersPage;
+
+	public SmokeTestSuite() {
+		super();
+		
+	@BeforeClass
+	public void setUp() {
+		launchBrowser();
+		loginPage =new LoginPage();
+		dashboardPage =new DashboardPage() ;
+		addUserPage = new AddUserPage();
+		addEmpPage = new AddEmpPage();
+		assignLeavePage = new AssignLeavePage();
+		configureNewHolidays = new ConfigureNewHolidays();
+		empListPage = new EmpListPage();
+		holidaysPage = new HolidaysPage();
+		leaveListPage = new LeaveListPage();
+		usersPage = new UsersPage();
+		
+	
+	}
+}

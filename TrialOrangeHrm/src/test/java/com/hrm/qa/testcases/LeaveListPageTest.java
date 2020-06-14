@@ -40,11 +40,9 @@ public class LeaveListPageTest extends BaseClass {
 	}
 
 	@BeforeMethod
-	public void loginToAppln() {
-		
+	public void goToLeaveListPage() {
 		dashboardPage.goToLeaveList();
-		
-	}
+		}
 	
 	@Test(priority=1)
 	public void validateDateFilter() throws ParseException {
@@ -61,7 +59,7 @@ public class LeaveListPageTest extends BaseClass {
 		
 	}
 	
-	//@Test(priority=3)
+	@Test(priority=3)
 	public void valiadatePendingStatus() {
 		Assert.assertTrue(leaveListPage.pendingStatus());
 
@@ -72,24 +70,24 @@ public class LeaveListPageTest extends BaseClass {
 		Assert.assertTrue(leaveListPage.scheduledStatus());
 	}
 
-	//@Test(priority=5)
+	@Test(priority=5)
 	public void valiadateTakenStatus() {
 		Assert.assertTrue(leaveListPage.takenStatus());
 
 	}
 
-	//@Test(priority=6)
+	@Test(priority=6)
 	public void valiadateAllStatus() {
 		Assert.assertTrue(leaveListPage.allStatus());
 
 	}
 
-	//@Test(priority=7)
-	public void verifyCancelLeave() throws InterruptedException {
+	@Test(priority=7)
+	public void verifyCancelOneLeave() throws InterruptedException {
 		leaveListPage.cancelOneAssignedLeave();
 	}
 	
-	//@Test(priority=8)
+	@Test(priority=8)
 	public void validateCancelStatus() throws InterruptedException {
 		//leaveListPage.enterEmpNameInFilter();
 		Assert.assertTrue(leaveListPage.cancelStatus());

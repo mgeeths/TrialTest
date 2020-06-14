@@ -2,6 +2,7 @@ package com.hrm.qa.pages;
 
 import java.time.Duration;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -25,6 +26,12 @@ public class DashboardPage extends BaseClass {
 	
 	@FindBy(id="menu_admin_viewSystemUsers")
 	WebElement usersTab;
+	
+	@FindBy(id="menu_pim_viewPimModule")
+	WebElement pimTab;
+	
+	@FindBy(id="menu_pim_addEmployee")
+	WebElement addEmpTab;
 	
 	@FindBy(linkText="Logout")
 	WebElement logout;
@@ -68,8 +75,15 @@ public class DashboardPage extends BaseClass {
 	}
 	
 	public DashboardPage goToDashboardPage() {
-		dashboardTab.click();
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		js.executeScript("arguments[0].click();", dashboardTab);
+		
 		return new DashboardPage();
+	}
+	
+	public EmpListPage goToEmpListPage() {
+		pimTab.click();
+		return new EmpListPage();
 	}
 	
 	public UsersPage goToUsersPage() {

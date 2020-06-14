@@ -1,0 +1,15 @@
+package com.hrm.qa.pages;
+
+import org.openqa.selenium.support.PageFactory;
+
+import com.hrm.qa.base.BaseClass;
+
+public class addEmpPage extends BaseClass{
+	//Page Factory
+	
+	public addEmpPage() {
+		PageFactory.initElements(driver, this);
+	}
+	
+	//Actions
+}

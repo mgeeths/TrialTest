@@ -1,33 +1,145 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="1" ignored="0" total="10" passed="9">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="12860" started-at="2020-06-10T22:46:34 PDT" finished-at="2020-06-10T22:46:47 PDT">
+  <suite name="Default suite" duration-ms="124648" started-at="2020-06-14T15:53:43 PDT" finished-at="2020-06-14T15:55:48 PDT">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="12860" started-at="2020-06-10T22:46:34 PDT" finished-at="2020-06-10T22:46:47 PDT">
-      <class name="com.hrm.qa.testcases.AddUserPageTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.hrm.qa.testcases.AddUserPageTest@7a9273a8]" name="setUp" is-config="true" duration-ms="6692" started-at="2020-06-10T22:46:34 PDT" finished-at="2020-06-10T22:46:41 PDT">
+    <test name="Default test" duration-ms="124648" started-at="2020-06-14T15:53:43 PDT" finished-at="2020-06-14T15:55:48 PDT">
+      <class name="com.hrm.qa.testcases.SmokeTestSuite">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.hrm.qa.testcases.SmokeTestSuite@4abdb505]" name="setUp" is-config="true" duration-ms="10169" started-at="2020-06-14T15:53:43 PDT" finished-at="2020-06-14T15:53:53 PDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="loginToAppln()[pri:0, instance:com.hrm.qa.testcases.AddUserPageTest@7a9273a8]" name="loginToAppln" is-config="true" duration-ms="4506" started-at="2020-06-10T22:46:41 PDT" finished-at="2020-06-10T22:46:46 PDT">
+        <test-method status="PASS" signature="goToDashboardPage()[pri:0, instance:com.hrm.qa.testcases.SmokeTestSuite@4abdb505]" name="goToDashboardPage" is-config="true" duration-ms="563" started-at="2020-06-14T15:53:53 PDT" finished-at="2020-06-14T15:53:54 PDT">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginToAppln -->
-        <test-method status="PASS" signature="verifyAddUserPageurl()[pri:0, instance:com.hrm.qa.testcases.AddUserPageTest@7a9273a8]" name="verifyAddUserPageurl" duration-ms="497" started-at="2020-06-10T22:46:46 PDT" finished-at="2020-06-10T22:46:46 PDT">
+        </test-method> <!-- goToDashboardPage -->
+        <test-method status="PASS" signature="createNewUsers()[pri:1, instance:com.hrm.qa.testcases.SmokeTestSuite@4abdb505]" name="createNewUsers" duration-ms="34087" started-at="2020-06-14T15:53:54 PDT" finished-at="2020-06-14T15:54:28 PDT">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyAddUserPageurl -->
-        <test-method status="PASS" signature="goBackToDashboardPage()[pri:0, instance:com.hrm.qa.testcases.AddUserPageTest@7a9273a8]" name="goBackToDashboardPage" is-config="true" duration-ms="365" started-at="2020-06-10T22:46:46 PDT" finished-at="2020-06-10T22:46:47 PDT">
+        </test-method> <!-- createNewUsers -->
+        <test-method status="PASS" signature="goToDashboardPage()[pri:0, instance:com.hrm.qa.testcases.SmokeTestSuite@4abdb505]" name="goToDashboardPage" is-config="true" duration-ms="321" started-at="2020-06-14T15:54:28 PDT" finished-at="2020-06-14T15:54:28 PDT">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- goBackToDashboardPage -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.hrm.qa.testcases.AddUserPageTest@7a9273a8]" name="tearDown" is-config="true" duration-ms="749" started-at="2020-06-10T22:46:47 PDT" finished-at="2020-06-10T22:46:47 PDT">
+        </test-method> <!-- goToDashboardPage -->
+        <test-method status="PASS" signature="assignLeave()[pri:2, instance:com.hrm.qa.testcases.SmokeTestSuite@4abdb505]" name="assignLeave" duration-ms="54236" started-at="2020-06-14T15:54:28 PDT" finished-at="2020-06-14T15:55:23 PDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assignLeave -->
+        <test-method status="PASS" signature="goToDashboardPage()[pri:0, instance:com.hrm.qa.testcases.SmokeTestSuite@4abdb505]" name="goToDashboardPage" is-config="true" duration-ms="352" started-at="2020-06-14T15:55:23 PDT" finished-at="2020-06-14T15:55:23 PDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- goToDashboardPage -->
+        <test-method status="PASS" signature="verifyDateFiltersInLeaveListPage()[pri:3, instance:com.hrm.qa.testcases.SmokeTestSuite@4abdb505]" name="verifyDateFiltersInLeaveListPage" duration-ms="2832" started-at="2020-06-14T15:55:23 PDT" finished-at="2020-06-14T15:55:26 PDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyDateFiltersInLeaveListPage -->
+        <test-method status="PASS" signature="goToDashboardPage()[pri:0, instance:com.hrm.qa.testcases.SmokeTestSuite@4abdb505]" name="goToDashboardPage" is-config="true" duration-ms="513" started-at="2020-06-14T15:55:26 PDT" finished-at="2020-06-14T15:55:26 PDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- goToDashboardPage -->
+        <test-method status="FAIL" signature="verifyEmpNameFilterInLeaveListPage()[pri:4, instance:com.hrm.qa.testcases.SmokeTestSuite@4abdb505]" name="verifyEmpNameFilterInLeaveListPage" duration-ms="4751" started-at="2020-06-14T15:55:26 PDT" finished-at="2020-06-14T15:55:31 PDT">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [Shru Thi] but found [Smri Thi]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [Shru Thi] but found [Smri Thi]
+at org.testng.Assert.fail(Assert.java:97)
+at org.testng.Assert.assertEqualsImpl(Assert.java:136)
+at org.testng.Assert.assertEquals(Assert.java:118)
+at org.testng.Assert.assertEquals(Assert.java:575)
+at org.testng.Assert.assertEquals(Assert.java:585)
+at com.hrm.qa.pages.LeaveListPage.resultTableNameCol(LeaveListPage.java:137)
+at com.hrm.qa.testcases.SmokeTestSuite.verifyEmpNameFilterInLeaveListPage(SmokeTestSuite.java:87)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:766)
+at org.testng.TestRunner.run(TestRunner.java:587)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+at org.testng.TestNG.runSuites(TestNG.java:1039)
+at org.testng.TestNG.run(TestNG.java:1007)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyEmpNameFilterInLeaveListPage -->
+        <test-method status="PASS" signature="goToDashboardPage()[pri:0, instance:com.hrm.qa.testcases.SmokeTestSuite@4abdb505]" name="goToDashboardPage" is-config="true" duration-ms="283" started-at="2020-06-14T15:55:31 PDT" finished-at="2020-06-14T15:55:31 PDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- goToDashboardPage -->
+        <test-method status="PASS" signature="valiadatePendingStatus()[pri:5, instance:com.hrm.qa.testcases.SmokeTestSuite@4abdb505]" name="valiadatePendingStatus" duration-ms="1701" started-at="2020-06-14T15:55:31 PDT" finished-at="2020-06-14T15:55:33 PDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- valiadatePendingStatus -->
+        <test-method status="PASS" signature="goToDashboardPage()[pri:0, instance:com.hrm.qa.testcases.SmokeTestSuite@4abdb505]" name="goToDashboardPage" is-config="true" duration-ms="319" started-at="2020-06-14T15:55:33 PDT" finished-at="2020-06-14T15:55:33 PDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- goToDashboardPage -->
+        <test-method status="PASS" signature="validateScheduledStatus()[pri:6, instance:com.hrm.qa.testcases.SmokeTestSuite@4abdb505]" name="validateScheduledStatus" duration-ms="1516" started-at="2020-06-14T15:55:33 PDT" finished-at="2020-06-14T15:55:35 PDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateScheduledStatus -->
+        <test-method status="PASS" signature="goToDashboardPage()[pri:0, instance:com.hrm.qa.testcases.SmokeTestSuite@4abdb505]" name="goToDashboardPage" is-config="true" duration-ms="346" started-at="2020-06-14T15:55:35 PDT" finished-at="2020-06-14T15:55:35 PDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- goToDashboardPage -->
+        <test-method status="PASS" signature="valiadateTakenStatus()[pri:7, instance:com.hrm.qa.testcases.SmokeTestSuite@4abdb505]" name="valiadateTakenStatus" duration-ms="1585" started-at="2020-06-14T15:55:35 PDT" finished-at="2020-06-14T15:55:37 PDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- valiadateTakenStatus -->
+        <test-method status="PASS" signature="goToDashboardPage()[pri:0, instance:com.hrm.qa.testcases.SmokeTestSuite@4abdb505]" name="goToDashboardPage" is-config="true" duration-ms="357" started-at="2020-06-14T15:55:37 PDT" finished-at="2020-06-14T15:55:37 PDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- goToDashboardPage -->
+        <test-method status="PASS" signature="valiadateAllStatus()[pri:8, instance:com.hrm.qa.testcases.SmokeTestSuite@4abdb505]" name="valiadateAllStatus" duration-ms="1653" started-at="2020-06-14T15:55:37 PDT" finished-at="2020-06-14T15:55:39 PDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- valiadateAllStatus -->
+        <test-method status="PASS" signature="goToDashboardPage()[pri:0, instance:com.hrm.qa.testcases.SmokeTestSuite@4abdb505]" name="goToDashboardPage" is-config="true" duration-ms="336" started-at="2020-06-14T15:55:39 PDT" finished-at="2020-06-14T15:55:39 PDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- goToDashboardPage -->
+        <test-method status="PASS" signature="verifyCancelLeave()[pri:9, instance:com.hrm.qa.testcases.SmokeTestSuite@4abdb505]" name="verifyCancelLeave" duration-ms="6192" started-at="2020-06-14T15:55:39 PDT" finished-at="2020-06-14T15:55:45 PDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyCancelLeave -->
+        <test-method status="PASS" signature="goToDashboardPage()[pri:0, instance:com.hrm.qa.testcases.SmokeTestSuite@4abdb505]" name="goToDashboardPage" is-config="true" duration-ms="409" started-at="2020-06-14T15:55:45 PDT" finished-at="2020-06-14T15:55:46 PDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- goToDashboardPage -->
+        <test-method status="PASS" signature="validateCancelStatus()[pri:10, instance:com.hrm.qa.testcases.SmokeTestSuite@4abdb505]" name="validateCancelStatus" duration-ms="1324" started-at="2020-06-14T15:55:46 PDT" finished-at="2020-06-14T15:55:47 PDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateCancelStatus -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.hrm.qa.testcases.SmokeTestSuite@4abdb505]" name="tearDown" is-config="true" duration-ms="733" started-at="2020-06-14T15:55:47 PDT" finished-at="2020-06-14T15:55:48 PDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.hrm.qa.testcases.AddUserPageTest -->
+      </class> <!-- com.hrm.qa.testcases.SmokeTestSuite -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

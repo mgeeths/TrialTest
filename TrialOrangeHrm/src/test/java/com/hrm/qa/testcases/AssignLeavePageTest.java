@@ -16,55 +16,58 @@ public class AssignLeavePageTest extends BaseClass {
 	LoginPage loginPage;
 	DashboardPage dashboardPage;
 	AssignLeavePage assignLeavePage;
-	//Xls_Reader xlsReader;
+
 	public AssignLeavePageTest() {
 		super();
 	}
+
 	@BeforeClass
 	public void setUp() {
 		launchBrowser();
 		loginPage = new LoginPage();
 		dashboardPage = new DashboardPage();
 		assignLeavePage = new AssignLeavePage();
-		//xlsReader = new Xls_Reader("C://Users//browse//Automation//TrialOrangeHrm//src//main//java//com//hrm//qa//testdata//Trial Orange Hrm Test Data.xlsx");
+
+		loginPage.goToWebsite();
+		loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
 		
-		}
-	
+	}
+
 	@BeforeMethod
-	public void loginToAppln() {
-		 loginPage.goToWebsite();
-		 loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
-		 dashboardPage.goToAssignLeave();
-		}
-	
-	//@Test 
+	public void goToAssignLeavePage() {
+
+		dashboardPage.goToAssignLeave();
+	}
+
+	// @Test
 	public void assignLeaveToEmp() {
 		assignLeavePage.enterAllInputFields();
 		assignLeavePage.clickAssignBtn();
 		assignLeavePage.successMsg();
 	}
-	
-	@Test 
+
+	//@Test
 	public void assignLeaveToEmpFromExcelFile() throws InterruptedException {
 		assignLeavePage.enterAllInputFieldsFromXcelFile();
 	}
-	//@Test
+
+	@Test
 	public void verifyAssignHalfDayLeave() {
 		assignLeavePage.assignHalfDayLeave();
 		assignLeavePage.successMsg();
 	}
-	
-	//@Test
+
+	// @Test
 	public void verifyAssignSpecificTimeLeave() throws InterruptedException {
 		assignLeavePage.assignSpecificTimeLeave();
 		assignLeavePage.successMsg();
 	}
-		
+
 	@AfterMethod
 	public void goBackToDashboardPage() {
 		dashboardPage.goToDashboardPage();
 	}
-	
+
 	@AfterClass
 	public void tearDown() {
 		driver.quit();

@@ -34,11 +34,11 @@ public class UsersPageTest extends BaseClass{
 	public void loginToAppln() {
 		loginPage.goToWebsite();
 		loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
+		dashboardPage.goToUsersPage();
 	}
 	
 	@Test
 	public void verifyGoToUsersPage() {
-		dashboardPage.goToUsersPage();
 		String pageUrl = driver.getCurrentUrl();
 		Assert.assertEquals(pageUrl, "https://opensource-demo.orangehrmlive.com/index.php/admin/viewSystemUsers");
 	}

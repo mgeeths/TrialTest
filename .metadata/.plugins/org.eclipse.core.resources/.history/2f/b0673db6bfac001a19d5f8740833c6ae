@@ -1,0 +1,47 @@
+package com.hrm.qa.pages;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import com.hrm.qa.base.BaseClass;
+
+public class addEmpPage extends BaseClass{
+	//Page Factory
+	
+	@FindBy(id="firstName")
+	WebElement fNameField;
+	
+	@FindBy(id="middleName")
+	WebElement mNameField;
+	
+	@FindBy(id="lastName")
+	WebElement lNameField;
+	
+	@FindBy(id="photofile")
+	WebElement photoField;
+	
+	@FindBy(id="chkLogin")
+	WebElement chkLoginField;
+	
+	@FindBy(id="user_name")
+	WebElement uNameField;
+	
+	@FindBy(id="user_password")
+	WebElement pwdField;
+	
+	@FindBy(id="re_password")
+	WebElement confirmPwdField;
+	
+	@FindBy(id="status")
+	WebElement statusField;
+	
+	@FindBy(id="btnSave")
+	WebElement saveBtn;
+	
+	public addEmpPage() {
+		PageFactory.initElements(driver, this);
+	}
+	
+	//Actions
+}

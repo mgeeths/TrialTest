@@ -65,7 +65,7 @@ public class AssignLeavePage extends BaseClass {
 	public AssignLeavePage() {
 		PageFactory.initElements(driver, this);
 		xlsReader = new Xls_Reader(
-				"C://Users//browse//Automation//TrialOrangeHrm//src//main//java//com//hrm//qa//testdata//Trial Orange Hrm Test Data.xlsx");
+				"C://Users//browse//Automation//TrialOrangeHrm//src//main//java//com//hrm//qa//testdata//Test Data.xlsx");
 
 	}
 
@@ -208,7 +208,10 @@ public class AssignLeavePage extends BaseClass {
 
 	public void enterAllInputFieldsFromXcelFile() throws InterruptedException {
 		int rowCount = xlsReader.getRowCount("AssignLeaveDetails");
+		System.out.println(rowCount);
+		
 		for (int rowNum = 2; rowNum <= rowCount; rowNum++) {
+			System.out.println("Emp on row no." +  rowNum);
 			String empName = xlsReader.getCellData("AssignLeaveDetails", "EmployeeName", rowNum);
 			System.out.println(empName);
 			empNameField.clear();
@@ -242,7 +245,7 @@ public class AssignLeavePage extends BaseClass {
 			WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5));
 			wait.until(ExpectedConditions.presenceOfElementLocated(By.id("confirmOkButton")));
 			js.executeScript("arguments[0].click();", confirmLeaveBtn);
-
+			Thread.sleep(2000);
 			//confirmLeaveBtn.click();
 
 			String bodyText = driver.findElement(By.tagName("body")).getText();

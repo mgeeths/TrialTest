@@ -1,0 +1,44 @@
+package com.hrm.qa.pages;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+
+import com.hrm.qa.base.BaseClass;
+
+public class AddUserPage extends BaseClass{
+	
+	LoginPage loginPage;
+	DashboardPage dashboardPage;
+	UsersPage usersPage;
+	
+	//Page Factory
+	@FindBy(id="systemUser_userType")
+	WebElement userRoleField;
+	
+	@FindBy(id="systemUser_employeeName_empName")
+	WebElement empNameField;
+	
+	@FindBy(id="systemUser_userName")
+	WebElement userNameField;
+	
+	@FindBy(id="systemUser_status")
+	WebElement statusField;
+	
+	public AddUserPage() {
+		PageFactory.initElements(driver, this);
+	}
+	
+	//Actions
+	
+	public void enterAllInputFields() {
+		Select select1 = new Select(userRoleField);
+		select1.selectByVisibleText("ESS");
+		empNameField.sendKeys("Steffi Graf");
+		userNameField.sendKeys("steffi.graf");
+		Select select2 = new Select(statusField);
+		select2.selectByVisibleText("Enabled");
+		
+	}
+}

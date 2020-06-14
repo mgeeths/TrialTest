@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Change method &apos;public PIMPage com.hrm.qa.pages.DashboardPage.goToPIMPage()&apos; to &apos;public EmpListPage goToEmpListPage()&apos;&#x0D;&#x0A;- Original project: &apos;TrialOrangeHrm&apos;&#x0D;&#x0A;- Original element: &apos;com.hrm.qa.pages.DashboardPage.goToPIMPage()&apos;&#x0D;&#x0A;- New name: &apos;goToEmpListPage&apos;&#x0D;&#x0A;- New return type: &apos;EmpListPage&apos;" delegate="false" deprecate="true" description="Change method &apos;goToPIMPage&apos;" flags="589830" id="org.eclipse.jdt.ui.change.method.signature" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.hrm.qa.pages{DashboardPage.java[DashboardPage~goToPIMPage" name="goToEmpListPage" return="EmpListPage" stamp="1591908704845" version="1.0"/>
+</session>
