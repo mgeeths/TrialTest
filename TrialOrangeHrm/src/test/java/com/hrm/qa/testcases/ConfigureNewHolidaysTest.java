@@ -7,6 +7,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.hrm.qa.base.BaseClass;
@@ -37,18 +38,17 @@ public class ConfigureNewHolidaysTest extends BaseClass {
 	}
 	
 	@BeforeMethod
-	public void loginToAppln() {
-		
+	public void navToConfigureHolidays() {
 		dashboardPage.goToHoildaysPage();
-		holidaysPage.goToConfigureNewHolidayPage();
 	}
 
 	@Test
-	public void verifyCreateNewHolidayInTable() throws InterruptedException {
-		// configureHolidays.navToConfigureHolidays();
-		configureHolidays.createNewHoliday();
+	@Parameters({"holidayName","holidayDate"})
+	public void verifyCreateNewHolidayInTable(String holidayName, String holidayDate) throws InterruptedException {
+		holidaysPage.goToConfigureNewHolidayPage();
+		configureHolidays.createNewHoliday(holidayName,holidayDate);
 		Thread.sleep(2000);
-		configureHolidays.resultTableData();
+		configureHolidays.resultTableData(holidayName,holidayDate);
 	}
 	/*The function returns two string variables. The assertions of these should be done in this 
 	 * function. To access these values, use .get method. Before asserting the values, the total 
@@ -60,10 +60,11 @@ public class ConfigureNewHolidaysTest extends BaseClass {
 	 * assertion will fail and we will know clearly that the function did not return two items.   
 	 */
 
-	//@Test
-	public void verifyEditHoiliday() throws InterruptedException {
-		configureHolidays.createNewHoliday();
-		List<String> resultTable = configureHolidays.editHoliday();
+	@Test
+	@Parameters({"holidayName"})
+	public void verifyEditHoiliday(String holidayName) throws InterruptedException {
+		//configureHolidays.createNewHoliday();
+		List<String> resultTable = configureHolidays.editHoliday(holidayName);
 		Assert.assertEquals(resultTable.size(),2);
 		Assert.assertEquals(resultTable.get(0), "Half Day");
 		Assert.assertEquals(resultTable.get(1), "No");

@@ -47,10 +47,10 @@ public class ConfigureNewHolidays extends BaseClass {
 
 	// Actions
 	
-	public void createNewHoliday() throws InterruptedException {
-		newHolidayName.sendKeys(prop.getProperty("holidayName"));
+	public void createNewHoliday(String holidayName, String holidayDate ) throws InterruptedException {
+		newHolidayName.sendKeys(holidayName);
 		holidayDatePicker.clear();
-		holidayDatePicker.sendKeys(prop.getProperty("holidayDate"));
+		holidayDatePicker.sendKeys(holidayDate);
 		holidayDatePicker.sendKeys(Keys.ENTER);
 		String date = holidayDatePicker.getText();
 		System.out.println(date);
@@ -59,22 +59,22 @@ public class ConfigureNewHolidays extends BaseClass {
 		Thread.sleep(2000);
 	}
 
-	public void resultTableData() {
+	public void resultTableData(String holidayName, String holidayDate) {
 		// boolean flag = false;
 		for (WebElement eachRow : allRows) {
 			List<WebElement> allCols = eachRow.findElements(By.xpath("./td"));
 			String name = allCols.get(1).getText();
 			System.out.println(name);
-			if (name.equals(prop.getProperty("holidayName"))) {
+			if (name.equals(holidayName)) {
 				String holiDate = allCols.get(2).getText();
 				String lengthDay = allCols.get(3).getText();
 				String repeatiton = allCols.get(4).getText();
 				System.out.println(holiDate);
 				System.out.println(lengthDay);
 				System.out.println(repeatiton);
-				Assert.assertTrue(holiDate.equals(prop.getProperty("holidayDate")), "Date entered is " + holiDate);
+				Assert.assertTrue(holiDate.equals(holidayDate), "Date entered is " + holiDate);
 				Assert.assertTrue(lengthDay.equals("Full Day"), "Day entered is " + lengthDay);
-				Assert.assertTrue(repeatiton.equals("Yes"), "Day entered is " + repeatiton);
+				Assert.assertTrue(repeatiton.equals("Yes"), "Repetition entered is " + repeatiton);
 				break;
 			}
 
@@ -84,12 +84,15 @@ public class ConfigureNewHolidays extends BaseClass {
  * variable results. This declaration is done before the second for loop, as the list will be 
  * created only there. 
  */
-	public List<String> editHoliday() {
+	public List<String> editHoliday(String holidayName) throws InterruptedException {
 		for (WebElement eachRow : allRows) {
 			List<WebElement> allCols = eachRow.findElements(By.xpath("./td"));
 			String name = allCols.get(1).getText();
-			if (name.equals(prop.getProperty("holidayName"))) {
-				allCols.get(1).findElement(By.tagName("a")).click();
+			if (name.equals(holidayName)) {
+				WebElement holidayLink = allCols.get(1).findElement(By.tagName("a"));
+				Thread.sleep(2000);
+				JavascriptExecutor js = ((JavascriptExecutor) driver);
+				js.executeScript("arguments[0].click();", holidayLink);
 				String url = driver.getCurrentUrl();
 				Assert.assertTrue(url
 						.contains("https://opensource-demo.orangehrmlive.com/index.php/leave/defineHoliday?hdnEditId"));
@@ -104,7 +107,7 @@ public class ConfigureNewHolidays extends BaseClass {
 		for (WebElement eachRow : allRows) {
 			List<WebElement> allCols = eachRow.findElements(By.xpath("./td"));
 			String name = allCols.get(1).getText();
-			if (name.equals(prop.getProperty("holidayName"))) {
+			if (name.equals(holidayName)) {
 				String lengthOfHoliday = allCols.get(3).getText();
 				results.add(lengthOfHoliday);
 				String repetition = allCols.get(4).getText();

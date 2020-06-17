@@ -1,353 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="27" passed="27">
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Practice Sanity TestNG Suite" duration-ms="230714" started-at="2020-06-16T22:55:03 PDT" finished-at="2020-06-16T22:58:54 PDT">
+  <suite name="Practice Sanity TestNG Suite" duration-ms="35305" started-at="2020-06-17T15:26:34 PDT" finished-at="2020-06-17T15:27:09 PDT">
     <groups>
     </groups>
-    <test name="NewUsersAndLeaveListTests" duration-ms="230714" started-at="2020-06-16T22:55:03 PDT" finished-at="2020-06-16T22:58:54 PDT">
-      <class name="com.hrm.qa.testcases.LoginPageTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.hrm.qa.testcases.LoginPageTest@45820e51]" name="setUp" is-config="true" duration-ms="5716" started-at="2020-06-16T22:55:03 PDT" finished-at="2020-06-16T22:55:09 PDT">
+    <test name="NewUsersAndLeaveListTests" duration-ms="35305" started-at="2020-06-17T15:26:34 PDT" finished-at="2020-06-17T15:27:09 PDT">
+      <class name="com.hrm.qa.testcases.ConfigureNewHolidaysTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.hrm.qa.testcases.ConfigureNewHolidaysTest@7113b13f]" name="setUp" is-config="true" duration-ms="8168" started-at="2020-06-17T15:26:48 PDT" finished-at="2020-06-17T15:26:56 PDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="validateLoginPageTitle()[pri:1, instance:com.hrm.qa.testcases.LoginPageTest@45820e51]" name="validateLoginPageTitle" duration-ms="1311" started-at="2020-06-16T22:55:09 PDT" finished-at="2020-06-16T22:55:10 PDT">
+        <test-method status="PASS" signature="navToConfigureHolidays()[pri:0, instance:com.hrm.qa.testcases.ConfigureNewHolidaysTest@7113b13f]" name="navToConfigureHolidays" is-config="true" duration-ms="1641" started-at="2020-06-17T15:26:56 PDT" finished-at="2020-06-17T15:26:57 PDT">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- validateLoginPageTitle -->
-        <test-method status="PASS" signature="validateLogo()[pri:2, instance:com.hrm.qa.testcases.LoginPageTest@45820e51]" name="validateLogo" duration-ms="156" started-at="2020-06-16T22:55:10 PDT" finished-at="2020-06-16T22:55:10 PDT">
+        </test-method> <!-- navToConfigureHolidays -->
+        <test-method status="PASS" signature="verifyCreateNewHolidayInTable(java.lang.String, java.lang.String)[pri:0, instance:com.hrm.qa.testcases.ConfigureNewHolidaysTest@7113b13f]" name="verifyCreateNewHolidayInTable" duration-ms="6146" started-at="2020-06-17T15:26:57 PDT" finished-at="2020-06-17T15:27:04 PDT">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Christmas Eve]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[2020-12-24]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- validateLogo -->
-        <test-method status="PASS" signature="validLogin()[pri:3, instance:com.hrm.qa.testcases.LoginPageTest@45820e51]" name="validLogin" duration-ms="2318" started-at="2020-06-16T22:55:10 PDT" finished-at="2020-06-16T22:55:13 PDT">
+        </test-method> <!-- verifyCreateNewHolidayInTable -->
+        <test-method status="PASS" signature="logoutofAppln()[pri:0, instance:com.hrm.qa.testcases.ConfigureNewHolidaysTest@7113b13f]" name="logoutofAppln" is-config="true" duration-ms="361" started-at="2020-06-17T15:27:04 PDT" finished-at="2020-06-17T15:27:04 PDT">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- validLogin -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.hrm.qa.testcases.LoginPageTest@45820e51]" name="tearDown" is-config="true" duration-ms="727" started-at="2020-06-16T22:55:13 PDT" finished-at="2020-06-16T22:55:14 PDT">
+        </test-method> <!-- logoutofAppln -->
+        <test-method status="PASS" signature="navToConfigureHolidays()[pri:0, instance:com.hrm.qa.testcases.ConfigureNewHolidaysTest@7113b13f]" name="navToConfigureHolidays" is-config="true" duration-ms="888" started-at="2020-06-17T15:27:04 PDT" finished-at="2020-06-17T15:27:05 PDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- navToConfigureHolidays -->
+        <test-method status="PASS" signature="verifyEditHoiliday(java.lang.String)[pri:0, instance:com.hrm.qa.testcases.ConfigureNewHolidaysTest@7113b13f]" name="verifyEditHoiliday" duration-ms="3535" started-at="2020-06-17T15:27:05 PDT" finished-at="2020-06-17T15:27:08 PDT">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Christmas Eve]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyEditHoiliday -->
+        <test-method status="PASS" signature="logoutofAppln()[pri:0, instance:com.hrm.qa.testcases.ConfigureNewHolidaysTest@7113b13f]" name="logoutofAppln" is-config="true" duration-ms="328" started-at="2020-06-17T15:27:08 PDT" finished-at="2020-06-17T15:27:09 PDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logoutofAppln -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.hrm.qa.testcases.ConfigureNewHolidaysTest@7113b13f]" name="tearDown" is-config="true" duration-ms="737" started-at="2020-06-17T15:27:09 PDT" finished-at="2020-06-17T15:27:09 PDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.hrm.qa.testcases.LoginPageTest -->
-      <class name="com.hrm.qa.testcases.DeleteEmpCreatedTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.hrm.qa.testcases.DeleteEmpCreatedTest@25af5db5]" name="setUp" is-config="true" duration-ms="6697" started-at="2020-06-16T22:58:31 PDT" finished-at="2020-06-16T22:58:38 PDT">
+      </class> <!-- com.hrm.qa.testcases.ConfigureNewHolidaysTest -->
+      <class name="com.hrm.qa.testcases.HolidaysPageTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.hrm.qa.testcases.HolidaysPageTest@60285225]" name="setUp" is-config="true" duration-ms="11169" started-at="2020-06-17T15:26:34 PDT" finished-at="2020-06-17T15:26:45 PDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="navToEmpListPage()[pri:0, instance:com.hrm.qa.testcases.DeleteEmpCreatedTest@25af5db5]" name="navToEmpListPage" is-config="true" duration-ms="1729" started-at="2020-06-16T22:58:38 PDT" finished-at="2020-06-16T22:58:39 PDT">
+        <test-method status="PASS" signature="verifyResultsTablePerFilterDates()[pri:0, instance:com.hrm.qa.testcases.HolidaysPageTest@60285225]" name="verifyResultsTablePerFilterDates" duration-ms="668" started-at="2020-06-17T15:26:45 PDT" finished-at="2020-06-17T15:26:46 PDT">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- navToEmpListPage -->
-        <test-method status="PASS" signature="verifyEmpListPageUrl()[pri:1, instance:com.hrm.qa.testcases.DeleteEmpCreatedTest@25af5db5]" name="verifyEmpListPageUrl" duration-ms="11" started-at="2020-06-16T22:58:39 PDT" finished-at="2020-06-16T22:58:39 PDT">
+        </test-method> <!-- verifyResultsTablePerFilterDates -->
+        <test-method status="PASS" signature="logoutofAppln()[pri:0, instance:com.hrm.qa.testcases.HolidaysPageTest@60285225]" name="logoutofAppln" is-config="true" duration-ms="864" started-at="2020-06-17T15:26:46 PDT" finished-at="2020-06-17T15:26:47 PDT">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyEmpListPageUrl -->
-        <test-method status="PASS" signature="goBackToDashboad()[pri:0, instance:com.hrm.qa.testcases.DeleteEmpCreatedTest@25af5db5]" name="goBackToDashboad" is-config="true" duration-ms="370" started-at="2020-06-16T22:58:39 PDT" finished-at="2020-06-16T22:58:40 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goBackToDashboad -->
-        <test-method status="PASS" signature="navToEmpListPage()[pri:0, instance:com.hrm.qa.testcases.DeleteEmpCreatedTest@25af5db5]" name="navToEmpListPage" is-config="true" duration-ms="573" started-at="2020-06-16T22:58:40 PDT" finished-at="2020-06-16T22:58:40 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- navToEmpListPage -->
-        <test-method status="PASS" signature="deleteNewEmpCreated()[pri:2, instance:com.hrm.qa.testcases.DeleteEmpCreatedTest@25af5db5]" name="deleteNewEmpCreated" duration-ms="12556" started-at="2020-06-16T22:58:40 PDT" finished-at="2020-06-16T22:58:53 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- deleteNewEmpCreated -->
-        <test-method status="PASS" signature="goBackToDashboad()[pri:0, instance:com.hrm.qa.testcases.DeleteEmpCreatedTest@25af5db5]" name="goBackToDashboad" is-config="true" duration-ms="314" started-at="2020-06-16T22:58:53 PDT" finished-at="2020-06-16T22:58:53 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goBackToDashboad -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.hrm.qa.testcases.DeleteEmpCreatedTest@25af5db5]" name="tearDown" is-config="true" duration-ms="684" started-at="2020-06-16T22:58:53 PDT" finished-at="2020-06-16T22:58:54 PDT">
+        </test-method> <!-- logoutofAppln -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.hrm.qa.testcases.HolidaysPageTest@60285225]" name="tearDown" is-config="true" duration-ms="744" started-at="2020-06-17T15:26:47 PDT" finished-at="2020-06-17T15:26:48 PDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.hrm.qa.testcases.DeleteEmpCreatedTest -->
-      <class name="com.hrm.qa.testcases.EmpListPageTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.hrm.qa.testcases.EmpListPageTest@cb51256]" name="setUp" is-config="true" duration-ms="6477" started-at="2020-06-16T22:56:19 PDT" finished-at="2020-06-16T22:56:25 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="navToEmpListPage()[pri:0, instance:com.hrm.qa.testcases.EmpListPageTest@cb51256]" name="navToEmpListPage" is-config="true" duration-ms="842" started-at="2020-06-16T22:56:25 PDT" finished-at="2020-06-16T22:56:26 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- navToEmpListPage -->
-        <test-method status="PASS" signature="verifyEmpListPageUrl()[pri:1, instance:com.hrm.qa.testcases.EmpListPageTest@cb51256]" name="verifyEmpListPageUrl" duration-ms="9" started-at="2020-06-16T22:56:26 PDT" finished-at="2020-06-16T22:56:26 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyEmpListPageUrl -->
-        <test-method status="PASS" signature="goBackToDashboad()[pri:0, instance:com.hrm.qa.testcases.EmpListPageTest@cb51256]" name="goBackToDashboad" is-config="true" duration-ms="322" started-at="2020-06-16T22:56:26 PDT" finished-at="2020-06-16T22:56:27 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goBackToDashboad -->
-        <test-method status="PASS" signature="navToEmpListPage()[pri:0, instance:com.hrm.qa.testcases.EmpListPageTest@cb51256]" name="navToEmpListPage" is-config="true" duration-ms="600" started-at="2020-06-16T22:56:27 PDT" finished-at="2020-06-16T22:56:27 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- navToEmpListPage -->
-        <test-method status="PASS" signature="verifyEmpNameAddedInResultTable()[pri:2, instance:com.hrm.qa.testcases.EmpListPageTest@cb51256]" name="verifyEmpNameAddedInResultTable" duration-ms="2925" started-at="2020-06-16T22:56:27 PDT" finished-at="2020-06-16T22:56:30 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyEmpNameAddedInResultTable -->
-        <test-method status="PASS" signature="goBackToDashboad()[pri:0, instance:com.hrm.qa.testcases.EmpListPageTest@cb51256]" name="goBackToDashboad" is-config="true" duration-ms="309" started-at="2020-06-16T22:56:30 PDT" finished-at="2020-06-16T22:56:30 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goBackToDashboad -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.hrm.qa.testcases.EmpListPageTest@cb51256]" name="tearDown" is-config="true" duration-ms="687" started-at="2020-06-16T22:56:30 PDT" finished-at="2020-06-16T22:56:31 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.hrm.qa.testcases.EmpListPageTest -->
-      <class name="com.hrm.qa.testcases.LeaveListPageTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.hrm.qa.testcases.LeaveListPageTest@5bfbf16f]" name="setUp" is-config="true" duration-ms="7927" started-at="2020-06-16T22:57:43 PDT" finished-at="2020-06-16T22:57:51 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="goToLeaveListPage()[pri:0, instance:com.hrm.qa.testcases.LeaveListPageTest@5bfbf16f]" name="goToLeaveListPage" is-config="true" duration-ms="895" started-at="2020-06-16T22:57:51 PDT" finished-at="2020-06-16T22:57:52 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goToLeaveListPage -->
-        <test-method status="PASS" signature="validateDateFilter()[pri:1, instance:com.hrm.qa.testcases.LeaveListPageTest@5bfbf16f]" name="validateDateFilter" duration-ms="2315" started-at="2020-06-16T22:57:52 PDT" finished-at="2020-06-16T22:57:54 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validateDateFilter -->
-        <test-method status="PASS" signature="goBackToDashboardPage()[pri:0, instance:com.hrm.qa.testcases.LeaveListPageTest@5bfbf16f]" name="goBackToDashboardPage" is-config="true" duration-ms="2315" started-at="2020-06-16T22:57:54 PDT" finished-at="2020-06-16T22:57:56 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goBackToDashboardPage -->
-        <test-method status="PASS" signature="goToLeaveListPage()[pri:0, instance:com.hrm.qa.testcases.LeaveListPageTest@5bfbf16f]" name="goToLeaveListPage" is-config="true" duration-ms="524" started-at="2020-06-16T22:57:56 PDT" finished-at="2020-06-16T22:57:57 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goToLeaveListPage -->
-        <test-method status="PASS" signature="verifyEmpNameInResultTable()[pri:2, instance:com.hrm.qa.testcases.LeaveListPageTest@5bfbf16f]" name="verifyEmpNameInResultTable" duration-ms="2758" started-at="2020-06-16T22:57:57 PDT" finished-at="2020-06-16T22:58:00 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyEmpNameInResultTable -->
-        <test-method status="PASS" signature="goBackToDashboardPage()[pri:0, instance:com.hrm.qa.testcases.LeaveListPageTest@5bfbf16f]" name="goBackToDashboardPage" is-config="true" duration-ms="2280" started-at="2020-06-16T22:58:00 PDT" finished-at="2020-06-16T22:58:02 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goBackToDashboardPage -->
-        <test-method status="PASS" signature="goToLeaveListPage()[pri:0, instance:com.hrm.qa.testcases.LeaveListPageTest@5bfbf16f]" name="goToLeaveListPage" is-config="true" duration-ms="443" started-at="2020-06-16T22:58:02 PDT" finished-at="2020-06-16T22:58:02 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goToLeaveListPage -->
-        <test-method status="PASS" signature="valiadatePendingStatus()[pri:3, instance:com.hrm.qa.testcases.LeaveListPageTest@5bfbf16f]" name="valiadatePendingStatus" duration-ms="1027" started-at="2020-06-16T22:58:02 PDT" finished-at="2020-06-16T22:58:03 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- valiadatePendingStatus -->
-        <test-method status="PASS" signature="goBackToDashboardPage()[pri:0, instance:com.hrm.qa.testcases.LeaveListPageTest@5bfbf16f]" name="goBackToDashboardPage" is-config="true" duration-ms="2283" started-at="2020-06-16T22:58:03 PDT" finished-at="2020-06-16T22:58:06 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goBackToDashboardPage -->
-        <test-method status="PASS" signature="goToLeaveListPage()[pri:0, instance:com.hrm.qa.testcases.LeaveListPageTest@5bfbf16f]" name="goToLeaveListPage" is-config="true" duration-ms="433" started-at="2020-06-16T22:58:06 PDT" finished-at="2020-06-16T22:58:06 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goToLeaveListPage -->
-        <test-method status="PASS" signature="validateScheduledStatus()[pri:4, instance:com.hrm.qa.testcases.LeaveListPageTest@5bfbf16f]" name="validateScheduledStatus" duration-ms="1304" started-at="2020-06-16T22:58:06 PDT" finished-at="2020-06-16T22:58:07 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validateScheduledStatus -->
-        <test-method status="PASS" signature="goBackToDashboardPage()[pri:0, instance:com.hrm.qa.testcases.LeaveListPageTest@5bfbf16f]" name="goBackToDashboardPage" is-config="true" duration-ms="2296" started-at="2020-06-16T22:58:07 PDT" finished-at="2020-06-16T22:58:10 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goBackToDashboardPage -->
-        <test-method status="PASS" signature="goToLeaveListPage()[pri:0, instance:com.hrm.qa.testcases.LeaveListPageTest@5bfbf16f]" name="goToLeaveListPage" is-config="true" duration-ms="513" started-at="2020-06-16T22:58:10 PDT" finished-at="2020-06-16T22:58:10 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goToLeaveListPage -->
-        <test-method status="PASS" signature="valiadateTakenStatus()[pri:5, instance:com.hrm.qa.testcases.LeaveListPageTest@5bfbf16f]" name="valiadateTakenStatus" duration-ms="1156" started-at="2020-06-16T22:58:10 PDT" finished-at="2020-06-16T22:58:11 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- valiadateTakenStatus -->
-        <test-method status="PASS" signature="goBackToDashboardPage()[pri:0, instance:com.hrm.qa.testcases.LeaveListPageTest@5bfbf16f]" name="goBackToDashboardPage" is-config="true" duration-ms="2322" started-at="2020-06-16T22:58:11 PDT" finished-at="2020-06-16T22:58:14 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goBackToDashboardPage -->
-        <test-method status="PASS" signature="goToLeaveListPage()[pri:0, instance:com.hrm.qa.testcases.LeaveListPageTest@5bfbf16f]" name="goToLeaveListPage" is-config="true" duration-ms="443" started-at="2020-06-16T22:58:14 PDT" finished-at="2020-06-16T22:58:14 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goToLeaveListPage -->
-        <test-method status="PASS" signature="valiadateAllStatus()[pri:6, instance:com.hrm.qa.testcases.LeaveListPageTest@5bfbf16f]" name="valiadateAllStatus" duration-ms="1446" started-at="2020-06-16T22:58:14 PDT" finished-at="2020-06-16T22:58:16 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- valiadateAllStatus -->
-        <test-method status="PASS" signature="goBackToDashboardPage()[pri:0, instance:com.hrm.qa.testcases.LeaveListPageTest@5bfbf16f]" name="goBackToDashboardPage" is-config="true" duration-ms="2301" started-at="2020-06-16T22:58:16 PDT" finished-at="2020-06-16T22:58:18 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goBackToDashboardPage -->
-        <test-method status="PASS" signature="goToLeaveListPage()[pri:0, instance:com.hrm.qa.testcases.LeaveListPageTest@5bfbf16f]" name="goToLeaveListPage" is-config="true" duration-ms="609" started-at="2020-06-16T22:58:18 PDT" finished-at="2020-06-16T22:58:18 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goToLeaveListPage -->
-        <test-method status="PASS" signature="verifyCancelOneLeave()[pri:7, instance:com.hrm.qa.testcases.LeaveListPageTest@5bfbf16f]" name="verifyCancelOneLeave" duration-ms="5726" started-at="2020-06-16T22:58:18 PDT" finished-at="2020-06-16T22:58:24 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyCancelOneLeave -->
-        <test-method status="PASS" signature="goBackToDashboardPage()[pri:0, instance:com.hrm.qa.testcases.LeaveListPageTest@5bfbf16f]" name="goBackToDashboardPage" is-config="true" duration-ms="2372" started-at="2020-06-16T22:58:24 PDT" finished-at="2020-06-16T22:58:27 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goBackToDashboardPage -->
-        <test-method status="PASS" signature="goToLeaveListPage()[pri:0, instance:com.hrm.qa.testcases.LeaveListPageTest@5bfbf16f]" name="goToLeaveListPage" is-config="true" duration-ms="490" started-at="2020-06-16T22:58:27 PDT" finished-at="2020-06-16T22:58:27 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goToLeaveListPage -->
-        <test-method status="PASS" signature="validateCancelStatus()[pri:8, instance:com.hrm.qa.testcases.LeaveListPageTest@5bfbf16f]" name="validateCancelStatus" duration-ms="872" started-at="2020-06-16T22:58:27 PDT" finished-at="2020-06-16T22:58:28 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validateCancelStatus -->
-        <test-method status="PASS" signature="goBackToDashboardPage()[pri:0, instance:com.hrm.qa.testcases.LeaveListPageTest@5bfbf16f]" name="goBackToDashboardPage" is-config="true" duration-ms="2429" started-at="2020-06-16T22:58:28 PDT" finished-at="2020-06-16T22:58:30 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goBackToDashboardPage -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.hrm.qa.testcases.LeaveListPageTest@5bfbf16f]" name="tearDown" is-config="true" duration-ms="709" started-at="2020-06-16T22:58:30 PDT" finished-at="2020-06-16T22:58:31 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.hrm.qa.testcases.LeaveListPageTest -->
-      <class name="com.hrm.qa.testcases.DashboardPageTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.hrm.qa.testcases.DashboardPageTest@42d8062c]" name="setUp" is-config="true" duration-ms="8202" started-at="2020-06-16T22:55:14 PDT" finished-at="2020-06-16T22:55:22 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="goToDashboardPage()[pri:0, instance:com.hrm.qa.testcases.DashboardPageTest@42d8062c]" name="goToDashboardPage" is-config="true" duration-ms="758" started-at="2020-06-16T22:55:22 PDT" finished-at="2020-06-16T22:55:22 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goToDashboardPage -->
-        <test-method status="PASS" signature="validateUser()[pri:1, instance:com.hrm.qa.testcases.DashboardPageTest@42d8062c]" name="validateUser" duration-ms="52" started-at="2020-06-16T22:55:22 PDT" finished-at="2020-06-16T22:55:23 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validateUser -->
-        <test-method status="PASS" signature="goToDashboardPage()[pri:0, instance:com.hrm.qa.testcases.DashboardPageTest@42d8062c]" name="goToDashboardPage" is-config="true" duration-ms="304" started-at="2020-06-16T22:55:23 PDT" finished-at="2020-06-16T22:55:23 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goToDashboardPage -->
-        <test-method status="PASS" signature="verifyAssignLeaveIconPage()[pri:2, instance:com.hrm.qa.testcases.DashboardPageTest@42d8062c]" name="verifyAssignLeaveIconPage" duration-ms="1636" started-at="2020-06-16T22:55:23 PDT" finished-at="2020-06-16T22:55:24 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyAssignLeaveIconPage -->
-        <test-method status="PASS" signature="goToDashboardPage()[pri:0, instance:com.hrm.qa.testcases.DashboardPageTest@42d8062c]" name="goToDashboardPage" is-config="true" duration-ms="367" started-at="2020-06-16T22:55:24 PDT" finished-at="2020-06-16T22:55:25 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goToDashboardPage -->
-        <test-method status="PASS" signature="verifyLeaveListIconPage()[pri:3, instance:com.hrm.qa.testcases.DashboardPageTest@42d8062c]" name="verifyLeaveListIconPage" duration-ms="797" started-at="2020-06-16T22:55:25 PDT" finished-at="2020-06-16T22:55:26 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyLeaveListIconPage -->
-        <test-method status="PASS" signature="goToDashboardPage()[pri:0, instance:com.hrm.qa.testcases.DashboardPageTest@42d8062c]" name="goToDashboardPage" is-config="true" duration-ms="327" started-at="2020-06-16T22:55:26 PDT" finished-at="2020-06-16T22:55:26 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goToDashboardPage -->
-        <test-method status="PASS" signature="verifyEmpListPage()[pri:4, instance:com.hrm.qa.testcases.DashboardPageTest@42d8062c]" name="verifyEmpListPage" duration-ms="1116" started-at="2020-06-16T22:55:26 PDT" finished-at="2020-06-16T22:55:27 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyEmpListPage -->
-        <test-method status="PASS" signature="goToDashboardPage()[pri:0, instance:com.hrm.qa.testcases.DashboardPageTest@42d8062c]" name="goToDashboardPage" is-config="true" duration-ms="307" started-at="2020-06-16T22:55:27 PDT" finished-at="2020-06-16T22:55:27 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goToDashboardPage -->
-        <test-method status="PASS" signature="verifyUsersPage()[pri:5, instance:com.hrm.qa.testcases.DashboardPageTest@42d8062c]" name="verifyUsersPage" duration-ms="1110" started-at="2020-06-16T22:55:27 PDT" finished-at="2020-06-16T22:55:29 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyUsersPage -->
-        <test-method status="PASS" signature="goToDashboardPage()[pri:0, instance:com.hrm.qa.testcases.DashboardPageTest@42d8062c]" name="goToDashboardPage" is-config="true" duration-ms="360" started-at="2020-06-16T22:55:29 PDT" finished-at="2020-06-16T22:55:29 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goToDashboardPage -->
-        <test-method status="PASS" signature="verifyLeaveListPage()[pri:6, instance:com.hrm.qa.testcases.DashboardPageTest@42d8062c]" name="verifyLeaveListPage" duration-ms="563" started-at="2020-06-16T22:55:29 PDT" finished-at="2020-06-16T22:55:29 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyLeaveListPage -->
-        <test-method status="PASS" signature="goToDashboardPage()[pri:0, instance:com.hrm.qa.testcases.DashboardPageTest@42d8062c]" name="goToDashboardPage" is-config="true" duration-ms="300" started-at="2020-06-16T22:55:29 PDT" finished-at="2020-06-16T22:55:30 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goToDashboardPage -->
-        <test-method status="PASS" signature="verifyHolidaysPage()[pri:7, instance:com.hrm.qa.testcases.DashboardPageTest@42d8062c]" name="verifyHolidaysPage" duration-ms="1019" started-at="2020-06-16T22:55:30 PDT" finished-at="2020-06-16T22:55:31 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyHolidaysPage -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.hrm.qa.testcases.DashboardPageTest@42d8062c]" name="tearDown" is-config="true" duration-ms="703" started-at="2020-06-16T22:55:31 PDT" finished-at="2020-06-16T22:55:31 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.hrm.qa.testcases.DashboardPageTest -->
-      <class name="com.hrm.qa.testcases.AddEmpPageTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.hrm.qa.testcases.AddEmpPageTest@6043cd28]" name="setUp" is-config="true" duration-ms="6642" started-at="2020-06-16T22:55:31 PDT" finished-at="2020-06-16T22:55:38 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="navToAddNewEmpPage()[pri:0, instance:com.hrm.qa.testcases.AddEmpPageTest@6043cd28]" name="navToAddNewEmpPage" is-config="true" duration-ms="1380" started-at="2020-06-16T22:55:38 PDT" finished-at="2020-06-16T22:55:39 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- navToAddNewEmpPage -->
-        <test-method status="PASS" signature="verifyPIMPageUrl()[pri:1, instance:com.hrm.qa.testcases.AddEmpPageTest@6043cd28]" name="verifyPIMPageUrl" duration-ms="2007" started-at="2020-06-16T22:55:39 PDT" finished-at="2020-06-16T22:55:41 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyPIMPageUrl -->
-        <test-method status="PASS" signature="goBackToDashboad()[pri:0, instance:com.hrm.qa.testcases.AddEmpPageTest@6043cd28]" name="goBackToDashboad" is-config="true" duration-ms="367" started-at="2020-06-16T22:55:41 PDT" finished-at="2020-06-16T22:55:42 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goBackToDashboad -->
-        <test-method status="PASS" signature="navToAddNewEmpPage()[pri:0, instance:com.hrm.qa.testcases.AddEmpPageTest@6043cd28]" name="navToAddNewEmpPage" is-config="true" duration-ms="952" started-at="2020-06-16T22:55:42 PDT" finished-at="2020-06-16T22:55:43 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- navToAddNewEmpPage -->
-        <test-method status="PASS" signature="createNewUsersFromExcelFile()[pri:2, instance:com.hrm.qa.testcases.AddEmpPageTest@6043cd28]" name="createNewUsersFromExcelFile" duration-ms="34800" started-at="2020-06-16T22:55:43 PDT" finished-at="2020-06-16T22:56:18 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createNewUsersFromExcelFile -->
-        <test-method status="PASS" signature="goBackToDashboad()[pri:0, instance:com.hrm.qa.testcases.AddEmpPageTest@6043cd28]" name="goBackToDashboad" is-config="true" duration-ms="346" started-at="2020-06-16T22:56:18 PDT" finished-at="2020-06-16T22:56:18 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goBackToDashboad -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.hrm.qa.testcases.AddEmpPageTest@6043cd28]" name="tearDown" is-config="true" duration-ms="998" started-at="2020-06-16T22:56:18 PDT" finished-at="2020-06-16T22:56:19 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.hrm.qa.testcases.AddEmpPageTest -->
-      <class name="com.hrm.qa.testcases.AssignLeavePageTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.hrm.qa.testcases.AssignLeavePageTest@59906517]" name="setUp" is-config="true" duration-ms="6686" started-at="2020-06-16T22:56:31 PDT" finished-at="2020-06-16T22:56:38 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="goToAssignLeavePage()[pri:0, instance:com.hrm.qa.testcases.AssignLeavePageTest@59906517]" name="goToAssignLeavePage" is-config="true" duration-ms="1112" started-at="2020-06-16T22:56:38 PDT" finished-at="2020-06-16T22:56:39 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goToAssignLeavePage -->
-        <test-method status="PASS" signature="assignLeaveToEmpFromExcelFile()[pri:1, instance:com.hrm.qa.testcases.AssignLeavePageTest@59906517]" name="assignLeaveToEmpFromExcelFile" duration-ms="53921" started-at="2020-06-16T22:56:39 PDT" finished-at="2020-06-16T22:57:33 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- assignLeaveToEmpFromExcelFile -->
-        <test-method status="PASS" signature="goBackToDashboardPage()[pri:0, instance:com.hrm.qa.testcases.AssignLeavePageTest@59906517]" name="goBackToDashboardPage" is-config="true" duration-ms="362" started-at="2020-06-16T22:57:33 PDT" finished-at="2020-06-16T22:57:33 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goBackToDashboardPage -->
-        <test-method status="PASS" signature="goToAssignLeavePage()[pri:0, instance:com.hrm.qa.testcases.AssignLeavePageTest@59906517]" name="goToAssignLeavePage" is-config="true" duration-ms="425" started-at="2020-06-16T22:57:33 PDT" finished-at="2020-06-16T22:57:34 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goToAssignLeavePage -->
-        <test-method status="PASS" signature="verifyAssignHalfDayLeave()[pri:2, instance:com.hrm.qa.testcases.AssignLeavePageTest@59906517]" name="verifyAssignHalfDayLeave" duration-ms="2077" started-at="2020-06-16T22:57:34 PDT" finished-at="2020-06-16T22:57:36 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyAssignHalfDayLeave -->
-        <test-method status="PASS" signature="goBackToDashboardPage()[pri:0, instance:com.hrm.qa.testcases.AssignLeavePageTest@59906517]" name="goBackToDashboardPage" is-config="true" duration-ms="347" started-at="2020-06-16T22:57:36 PDT" finished-at="2020-06-16T22:57:36 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goBackToDashboardPage -->
-        <test-method status="PASS" signature="goToAssignLeavePage()[pri:0, instance:com.hrm.qa.testcases.AssignLeavePageTest@59906517]" name="goToAssignLeavePage" is-config="true" duration-ms="421" started-at="2020-06-16T22:57:36 PDT" finished-at="2020-06-16T22:57:36 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goToAssignLeavePage -->
-        <test-method status="PASS" signature="verifyAssignSpecificTimeLeave()[pri:3, instance:com.hrm.qa.testcases.AssignLeavePageTest@59906517]" name="verifyAssignSpecificTimeLeave" duration-ms="5273" started-at="2020-06-16T22:57:36 PDT" finished-at="2020-06-16T22:57:42 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyAssignSpecificTimeLeave -->
-        <test-method status="PASS" signature="goBackToDashboardPage()[pri:0, instance:com.hrm.qa.testcases.AssignLeavePageTest@59906517]" name="goBackToDashboardPage" is-config="true" duration-ms="305" started-at="2020-06-16T22:57:42 PDT" finished-at="2020-06-16T22:57:42 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goBackToDashboardPage -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.hrm.qa.testcases.AssignLeavePageTest@59906517]" name="tearDown" is-config="true" duration-ms="756" started-at="2020-06-16T22:57:42 PDT" finished-at="2020-06-16T22:57:43 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.hrm.qa.testcases.AssignLeavePageTest -->
+      </class> <!-- com.hrm.qa.testcases.HolidaysPageTest -->
     </test> <!-- NewUsersAndLeaveListTests -->
   </suite> <!-- Practice Sanity TestNG Suite -->
 </testng-results>
