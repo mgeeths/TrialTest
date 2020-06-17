@@ -28,12 +28,13 @@ public class UsersPageTest extends BaseClass{
 		loginPage  = new LoginPage();
 		dashboardPage = new  DashboardPage();
 		usersPage  = new UsersPage();
+		
+		loginPage.goToWebsite();
+		loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
 		}
 	
 	@BeforeMethod
-	public void loginToAppln() {
-		loginPage.goToWebsite();
-		loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
+	public void navToUsersPage() {
 		dashboardPage.goToUsersPage();
 	}
 	

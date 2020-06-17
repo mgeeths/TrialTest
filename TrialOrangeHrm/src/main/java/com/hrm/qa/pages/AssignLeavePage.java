@@ -160,12 +160,16 @@ public class AssignLeavePage extends BaseClass {
 	}
 
 	public void assignHalfDayLeave() {
-		empNameField.sendKeys(prop.getProperty("empName"));
+		String empName = xlsReader.getCellData("NewUserDetails", "FullName", 5);
+		//empNameField.clear();
+		empNameField.click();
+		empNameField.sendKeys(empName);
 		Select select = new Select(leaveType);
 		select.selectByVisibleText("Maternity US");
 
 		fromDateEle.clear();
-		fromDateEle.sendKeys(prop.getProperty("leaveFromDate"));
+		String halfDate= xlsReader.getCellData("AssignLeaveDetails", "StringLeaveFromDate", 10);
+		fromDateEle.sendKeys(halfDate);
 		fromDateEle.sendKeys(Keys.ENTER);
 		durationField.click();
 		Select select1 = new Select(durationField);
@@ -176,19 +180,21 @@ public class AssignLeavePage extends BaseClass {
 		Select select2 = new Select(ampmDuration);
 		select2.selectByVisibleText("Afternoon");
 
-		commentsBox.sendKeys(
-				prop.getProperty("empName") + " is going on half day leave on " + prop.getProperty("leaveFromDate"));
+		commentsBox.sendKeys(empName + " is going on half day leave on " + halfDate);
 		assignBtn.click();
 
 	}
 
 	public void assignSpecificTimeLeave() throws InterruptedException {
-		empNameField.sendKeys(prop.getProperty("empName"));
+		String empName = xlsReader.getCellData("NewUserDetails", "FullName", 5);
+		//empNameField.clear();
+		empNameField.click();
+		empNameField.sendKeys(empName);
 		Select select = new Select(leaveType);
 		select.selectByVisibleText("FMLA US");
-
 		fromDateEle.clear();
-		fromDateEle.sendKeys(prop.getProperty("leaveFromDate"));
+		String halfDate= xlsReader.getCellData("AssignLeaveDetails", "StringLeaveFromDate", 8);
+		fromDateEle.sendKeys(halfDate);
 		fromDateEle.sendKeys(Keys.ENTER);
 		durationField.click();
 		Select select1 = new Select(durationField);
@@ -200,8 +206,7 @@ public class AssignLeavePage extends BaseClass {
 		Select select3 = new Select(specificToTime);
 		select3.selectByVisibleText("13:00");
 		Thread.sleep(3000);
-		commentsBox.sendKeys(prop.getProperty("empName") + " is going on specific time leave on  "
-				+ prop.getProperty("leaveFromDate"));
+		commentsBox.sendKeys(empName + " is going on specific time leave on  " + halfDate);
 		assignBtn.click();
 
 	}

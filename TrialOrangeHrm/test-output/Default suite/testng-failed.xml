@@ -3,14 +3,16 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.hrm.qa.testcases.SmokeTestSuite">
+      <class name="com.hrm.qa.testcases.LeaveListPageTest">
         <methods>
-          <include name="verifyEmpNameFilterInLeaveListPage"/>
-          <include name="tearDown"/>
-          <include name="goToDashboardPage"/>
+          <include name="goToLeaveListPage"/>
+          <include name="verifyEmpNameInResultTable"/>
+          <include name="valiadatePendingStatus"/>
           <include name="setUp"/>
+          <include name="goBackToDashboardPage"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- com.hrm.qa.testcases.SmokeTestSuite -->
+      </class> <!-- com.hrm.qa.testcases.LeaveListPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

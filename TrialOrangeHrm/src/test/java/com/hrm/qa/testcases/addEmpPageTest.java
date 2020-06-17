@@ -13,14 +13,14 @@ import com.hrm.qa.pages.DashboardPage;
 import com.hrm.qa.pages.EmpListPage;
 import com.hrm.qa.pages.LoginPage;
 
-public class addEmpPageTest extends BaseClass{
+public class AddEmpPageTest extends BaseClass{
 
 	LoginPage loginPage;
 	DashboardPage dashboardPage;
 	EmpListPage empListPage;
 	AddEmpPage addEmpPage;
 	
-	public addEmpPageTest() {
+	public AddEmpPageTest() {
 		super();
 	}
 	
@@ -38,21 +38,20 @@ public class addEmpPageTest extends BaseClass{
 	}
 
 	@BeforeMethod
-	public void goToDashboard() {
-		dashboardPage.goToDashboardPage();
+	public void navToAddNewEmpPage() {
 		dashboardPage.goToEmpListPage();
 		empListPage.goToAddNewEmpPage();
 		
 	}
 	
-	@Test
+	@Test(priority = 1)
 	public void verifyPIMPageUrl() throws InterruptedException {
 		Thread.sleep(2000);
 		String pageUrl = driver.getCurrentUrl();
 		Assert.assertEquals(pageUrl, "https://opensource-demo.orangehrmlive.com/index.php/pim/addEmployee");
 	}
 	
-	@Test
+	@Test(priority = 2)
 	public void createNewUsersFromExcelFile() throws InterruptedException {
 		addEmpPage.addNewEmpFromExcelFile();
 		Thread.sleep(2000);

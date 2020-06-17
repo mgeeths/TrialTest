@@ -13,11 +13,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 
 import com.hrm.qa.util.UtilClass;
+import com.hrm.qa.util.Xls_Reader;
 
 public class BaseClass {
 	
 	public static WebDriver driver;
 	public static Properties prop;
+	
 	
 	public BaseClass() {
 		try {
@@ -28,7 +30,7 @@ public class BaseClass {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-		}		
+		}
 	}
 
 	public static void launchBrowser() {

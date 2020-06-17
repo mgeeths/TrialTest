@@ -26,12 +26,14 @@ public class DashboardPageTest extends BaseClass{
 		launchBrowser();
 		loginPage = new LoginPage();
 		dashboardPage = new DashboardPage();
+		
+		loginPage.goToWebsite();
+		loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
 		}
 	
 	@BeforeMethod
-	public void loginToAppln() {
-		loginPage.goToWebsite();
-		loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
+	public void goToDashboardPage() {
+		dashboardPage.goToDashboardPage();
 	}
 	
 	@Test(priority=1)
@@ -39,21 +41,48 @@ public class DashboardPageTest extends BaseClass{
 		String currentUserName = dashboardPage.currentUser();
 		Assert.assertEquals(currentUserName, "Welcome Admin");
 	}
+	
+	@Test(priority=4)
+	public void verifyEmpListPage() {
+		dashboardPage.goToEmpListPage();
+		String currentURL = driver.getCurrentUrl();
+		Assert.assertEquals(currentURL, "https://opensource-demo.orangehrmlive.com/index.php/pim/viewEmployeeList");
+	}
 	@Test(priority=2)
-	public void clickAssignLeaveLink() {
-		assignLeavePage = dashboardPage.goToAssignLeave();
+	public void verifyAssignLeaveIconPage() {
+		dashboardPage.goToAssignLeave();
 		String currentURL = driver.getCurrentUrl();
 		Assert.assertEquals(currentURL, "https://opensource-demo.orangehrmlive.com/index.php/leave/assignLeave");
 	}
 	
 	@Test(priority=3)
-	public void navigateToHolidaysPage() {
+	public void verifyLeaveListIconPage() {
+		dashboardPage.goToLeaveList();
+		String currentURL = driver.getCurrentUrl();
+		Assert.assertEquals(currentURL, "https://opensource-demo.orangehrmlive.com/index.php/leave/viewLeaveList");
+	}
+	
+	@Test(priority=5)
+	public void verifyUsersPage() {
+		dashboardPage.goToUsersPage();
+		String currentURL = driver.getCurrentUrl();
+		Assert.assertEquals(currentURL, "https://opensource-demo.orangehrmlive.com/index.php/admin/viewSystemUsers");
+	}
+	
+	@Test(priority=6)
+	public void verifyLeaveListPage() {
+		dashboardPage.goToLeaveTab();;
+		String currentURL = driver.getCurrentUrl();
+		Assert.assertEquals(currentURL, "https://opensource-demo.orangehrmlive.com/index.php/leave/viewLeaveList");
+	}
+	@Test(priority=7)
+	public void verifyHolidaysPage() {
 		dashboardPage.goToHoildaysPage();
 		String url = driver.getCurrentUrl();
 		Assert.assertEquals(url, "https://opensource-demo.orangehrmlive.com/index.php/leave/viewHolidayList");
  	}
 	
-	@AfterMethod
+	//@AfterMethod
 	public void goBackToDashboardPage() {
 		dashboardPage.goToDashboardPage();
 	}

@@ -31,22 +31,28 @@ public class EmpListPageTest extends BaseClass {
 
 		loginPage.goToWebsite();
 		loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
-		// dashboardPage.goToDashboardPage();
-
 	}
 
 	@BeforeMethod
-	public void goToDashboard() {
-		dashboardPage.goToDashboardPage();
+	public void navToEmpListPage() {
 		dashboardPage.goToEmpListPage();
 	}
 	
-	@Test
+	@Test(priority = 1)
 	public void verifyEmpListPageUrl() {
 		String pageUrl = driver.getCurrentUrl();
 		Assert.assertEquals(pageUrl, "https://opensource-demo.orangehrmlive.com/index.php/pim/viewEmployeeList");
 	}
 	
+	@Test(priority = 2)
+	public void verifyEmpNameAddedInResultTable() throws InterruptedException {
+		empListPage.checkNameInResultTable();
+	}
+	
+	//@Test(priority = 2)
+	public void verifyDeleteEmpInResultTable() throws InterruptedException {
+		empListPage.deleteOneEmp();
+	}
 	@AfterMethod
 	public void goBackToDashboad() {
 		dashboardPage.goToDashboardPage();

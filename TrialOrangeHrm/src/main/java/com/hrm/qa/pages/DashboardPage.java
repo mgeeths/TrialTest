@@ -30,6 +30,15 @@ public class DashboardPage extends BaseClass {
 	@FindBy(id="menu_pim_viewPimModule")
 	WebElement pimTab;
 	
+	@FindBy(id="menu__Performance")
+	WebElement performanceTab;
+	
+	@FindBy(id="menu_performance_Configure")
+	WebElement configurePerformance;
+	
+	@FindBy(id="menu_performance_addPerformanceTracker")
+	WebElement trackerTab;
+	
 	@FindBy(id="menu_pim_addEmployee")
 	WebElement addEmpTab;
 	
@@ -77,7 +86,6 @@ public class DashboardPage extends BaseClass {
 	public DashboardPage goToDashboardPage() {
 		JavascriptExecutor js = ((JavascriptExecutor) driver);
 		js.executeScript("arguments[0].click();", dashboardTab);
-		
 		return new DashboardPage();
 	}
 	
@@ -97,7 +105,6 @@ public class DashboardPage extends BaseClass {
 	}
 	public  AssignLeavePage goToAssignLeave() {
 		assignLeaveLink.click();
-		//String currentPage = driver.getCurrentUrl();
 		return new AssignLeavePage();
 		
 	}
@@ -117,5 +124,15 @@ public class DashboardPage extends BaseClass {
 		mouseOver(holidaysLink);
 		holidaysLink.click();
 		return new HolidaysPage();
+	}
+
+	public TrackerPage goToPerformanceTab() {
+		Actions actions = new Actions(driver);
+		actions.moveToElement(performanceTab).build().perform();
+		actions.moveToElement(configurePerformance).build().perform();
+		actions.moveToElement(performanceTab).build().perform();
+		actions.moveToElement(trackerTab).build().perform();
+		trackerTab.click();
+		return new TrackerPage();	
 	}
 }

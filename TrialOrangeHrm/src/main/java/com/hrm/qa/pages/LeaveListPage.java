@@ -20,9 +20,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import com.hrm.qa.base.BaseClass;
+import com.hrm.qa.util.Xls_Reader;
 
 public class LeaveListPage extends BaseClass {
-
+	Xls_Reader xlsReader;
 	// Page Factory
 	@FindBy(xpath="//input[@id='calFromDate']")
 	WebElement fromDateField;
@@ -63,7 +64,7 @@ public class LeaveListPage extends BaseClass {
 	@FindBy(xpath = "//input[@id='leaveList_chkSearchFilter_-1']")
 	WebElement rejectedChkbox;
 
-	@FindBy(id = "leaveList_txtEmployee_empName")
+	@FindBy(name="leaveList[txtEmployee][empName]")
 	WebElement empNameField;
 
 	@FindBy(id="btnReset")
@@ -80,8 +81,9 @@ public class LeaveListPage extends BaseClass {
 	
 	public LeaveListPage() {
 		PageFactory.initElements(driver, this);
+		xlsReader = new Xls_Reader(
+				"C:\\Users\\browse\\Automation\\TrialOrangeHrm\\src\\main\\java\\com\\hrm\\qa\\testdata\\Test Data.xlsx");
 	}
-
 	// Actions
 
 	public void enterFromDateFilter() {
@@ -116,14 +118,15 @@ public class LeaveListPage extends BaseClass {
 		if (! allCheckbox.isSelected()) {
 			js.executeScript("arguments[0].click();", allCheckbox);
 		}
+		String empName = xlsReader.getCellData("AssignLeaveDetails", "EmployeeName", 2);
+		System.out.println(empName);
 		js.executeScript("arguments[0].value = '';", empNameField);
+		Thread.sleep(1000);
 		empNameField.click();
-		empNameField.sendKeys(prop.getProperty("empName"));
+		empNameField.sendKeys(empName);
 		js.executeScript("arguments[0].click();", searchBtn);
-		//searchBtn.click();
-		Thread.sleep(3000);
-		//WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(3));
-		//wait.until(ExpectedConditions.textToBePresentInElementValue(locator, text))
+		Thread.sleep(1000);
+		
 	}
 
 	public boolean resultTableNameCol() {
@@ -134,7 +137,8 @@ public class LeaveListPage extends BaseClass {
 			List<WebElement> nameCol = allRows.get(i).findElements(By.xpath("./td"));
 			String name = nameCol.get(1).getText();
 			System.out.println(name);
-			Assert.assertEquals(name, prop.getProperty("empName"));
+			String empName = xlsReader.getCellData("NewUserDetails", "FullName", 2);
+			Assert.assertEquals(name, empName);
 		}
 		return flag;
 
@@ -263,15 +267,16 @@ public class LeaveListPage extends BaseClass {
 		fromDateField.clear();
 		toDateField.clear();
 		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		/*
 		if (scheduledChkbox.isSelected()) {
 			js.executeScript("arguments[0].click();", scheduledChkbox);
 		}
 		if (pendingChkbox.isSelected()) {
 			js.executeScript("arguments[0].click();", pendingChkbox);
-		}
+		}*/
 		if (! allCheckbox.isSelected()) {
 			js.executeScript("arguments[0].click();", allCheckbox);
-		}
+		}/*
 		if (takenChkbox.isSelected()) {
 			js.executeScript("arguments[0].click();", takenChkbox);
 		}
@@ -280,7 +285,7 @@ public class LeaveListPage extends BaseClass {
 		}
 		if (rejectedChkbox.isSelected()) {
 			js.executeScript("arguments[0].click();", rejectedChkbox);
-		}
+		}*/
 
 		searchBtn.click();
 
@@ -357,9 +362,10 @@ public class LeaveListPage extends BaseClass {
 	public void cancelOneAssignedLeave() throws InterruptedException {
 		fromDateField.clear();
 		toDateField.clear();
-		empNameField.click();
 		empNameField.clear();
-		empNameField.sendKeys(prop.getProperty("empName"));
+		empNameField.click();
+		String empName = xlsReader.getCellData("NewUserDetails", "FullName", 2);
+		empNameField.sendKeys(empName);
 		JavascriptExecutor js = ((JavascriptExecutor) driver);
 		js.executeScript("arguments[0].click();", allCheckbox);
 		js.executeScript("arguments[0].click();", searchBtn);

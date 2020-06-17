@@ -38,11 +38,8 @@ public class AddUserPageTest extends BaseClass {
 	}
 
 	@BeforeMethod
-	public void loginToAppln() {
-		
-		dashboardPage.goToUsersPage();
+	public void navToAddUsersPage() {
 		usersPage.goToAddUserPage();
-
 	}
 
 	@Test

@@ -1,0 +1,214 @@
+<html>
+<head>
+<title>TestNG:  NewUsersAndLeaveListTests</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>NewUsersAndLeaveListTests</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>27/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Jun 16 22:55:03 PDT 2020</td>
+</tr>
+<tr><td>Total time:</td><td>230 seconds (230714 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.hrm.qa.testcases.AssignLeavePageTest.assignLeaveToEmpFromExcelFile()'><b>assignLeaveToEmpFromExcelFile</b><br>Test class: com.hrm.qa.testcases.AssignLeavePageTest</td>
+<td></td>
+<td>53</td>
+<td>com.hrm.qa.testcases.AssignLeavePageTest@59906517</td></tr>
+<tr>
+<td title='com.hrm.qa.testcases.AddEmpPageTest.createNewUsersFromExcelFile()'><b>createNewUsersFromExcelFile</b><br>Test class: com.hrm.qa.testcases.AddEmpPageTest</td>
+<td></td>
+<td>34</td>
+<td>com.hrm.qa.testcases.AddEmpPageTest@6043cd28</td></tr>
+<tr>
+<td title='com.hrm.qa.testcases.DeleteEmpCreatedTest.deleteNewEmpCreated()'><b>deleteNewEmpCreated</b><br>Test class: com.hrm.qa.testcases.DeleteEmpCreatedTest</td>
+<td></td>
+<td>12</td>
+<td>com.hrm.qa.testcases.DeleteEmpCreatedTest@25af5db5</td></tr>
+<tr>
+<td title='com.hrm.qa.testcases.LeaveListPageTest.valiadateAllStatus()'><b>valiadateAllStatus</b><br>Test class: com.hrm.qa.testcases.LeaveListPageTest</td>
+<td></td>
+<td>1</td>
+<td>com.hrm.qa.testcases.LeaveListPageTest@5bfbf16f</td></tr>
+<tr>
+<td title='com.hrm.qa.testcases.LeaveListPageTest.valiadatePendingStatus()'><b>valiadatePendingStatus</b><br>Test class: com.hrm.qa.testcases.LeaveListPageTest</td>
+<td></td>
+<td>1</td>
+<td>com.hrm.qa.testcases.LeaveListPageTest@5bfbf16f</td></tr>
+<tr>
+<td title='com.hrm.qa.testcases.LeaveListPageTest.valiadateTakenStatus()'><b>valiadateTakenStatus</b><br>Test class: com.hrm.qa.testcases.LeaveListPageTest</td>
+<td></td>
+<td>1</td>
+<td>com.hrm.qa.testcases.LeaveListPageTest@5bfbf16f</td></tr>
+<tr>
+<td title='com.hrm.qa.testcases.LoginPageTest.validLogin()'><b>validLogin</b><br>Test class: com.hrm.qa.testcases.LoginPageTest</td>
+<td></td>
+<td>2</td>
+<td>com.hrm.qa.testcases.LoginPageTest@45820e51</td></tr>
+<tr>
+<td title='com.hrm.qa.testcases.LeaveListPageTest.validateCancelStatus()'><b>validateCancelStatus</b><br>Test class: com.hrm.qa.testcases.LeaveListPageTest</td>
+<td></td>
+<td>0</td>
+<td>com.hrm.qa.testcases.LeaveListPageTest@5bfbf16f</td></tr>
+<tr>
+<td title='com.hrm.qa.testcases.LeaveListPageTest.validateDateFilter()'><b>validateDateFilter</b><br>Test class: com.hrm.qa.testcases.LeaveListPageTest</td>
+<td></td>
+<td>2</td>
+<td>com.hrm.qa.testcases.LeaveListPageTest@5bfbf16f</td></tr>
+<tr>
+<td title='com.hrm.qa.testcases.LoginPageTest.validateLoginPageTitle()'><b>validateLoginPageTitle</b><br>Test class: com.hrm.qa.testcases.LoginPageTest</td>
+<td></td>
+<td>1</td>
+<td>com.hrm.qa.testcases.LoginPageTest@45820e51</td></tr>
+<tr>
+<td title='com.hrm.qa.testcases.LoginPageTest.validateLogo()'><b>validateLogo</b><br>Test class: com.hrm.qa.testcases.LoginPageTest</td>
+<td></td>
+<td>0</td>
+<td>com.hrm.qa.testcases.LoginPageTest@45820e51</td></tr>
+<tr>
+<td title='com.hrm.qa.testcases.LeaveListPageTest.validateScheduledStatus()'><b>validateScheduledStatus</b><br>Test class: com.hrm.qa.testcases.LeaveListPageTest</td>
+<td></td>
+<td>1</td>
+<td>com.hrm.qa.testcases.LeaveListPageTest@5bfbf16f</td></tr>
+<tr>
+<td title='com.hrm.qa.testcases.DashboardPageTest.validateUser()'><b>validateUser</b><br>Test class: com.hrm.qa.testcases.DashboardPageTest</td>
+<td></td>
+<td>0</td>
+<td>com.hrm.qa.testcases.DashboardPageTest@42d8062c</td></tr>
+<tr>
+<td title='com.hrm.qa.testcases.AssignLeavePageTest.verifyAssignHalfDayLeave()'><b>verifyAssignHalfDayLeave</b><br>Test class: com.hrm.qa.testcases.AssignLeavePageTest</td>
+<td></td>
+<td>2</td>
+<td>com.hrm.qa.testcases.AssignLeavePageTest@59906517</td></tr>
+<tr>
+<td title='com.hrm.qa.testcases.DashboardPageTest.verifyAssignLeaveIconPage()'><b>verifyAssignLeaveIconPage</b><br>Test class: com.hrm.qa.testcases.DashboardPageTest</td>
+<td></td>
+<td>1</td>
+<td>com.hrm.qa.testcases.DashboardPageTest@42d8062c</td></tr>
+<tr>
+<td title='com.hrm.qa.testcases.AssignLeavePageTest.verifyAssignSpecificTimeLeave()'><b>verifyAssignSpecificTimeLeave</b><br>Test class: com.hrm.qa.testcases.AssignLeavePageTest</td>
+<td></td>
+<td>5</td>
+<td>com.hrm.qa.testcases.AssignLeavePageTest@59906517</td></tr>
+<tr>
+<td title='com.hrm.qa.testcases.LeaveListPageTest.verifyCancelOneLeave()'><b>verifyCancelOneLeave</b><br>Test class: com.hrm.qa.testcases.LeaveListPageTest</td>
+<td></td>
+<td>5</td>
+<td>com.hrm.qa.testcases.LeaveListPageTest@5bfbf16f</td></tr>
+<tr>
+<td title='com.hrm.qa.testcases.DashboardPageTest.verifyEmpListPage()'><b>verifyEmpListPage</b><br>Test class: com.hrm.qa.testcases.DashboardPageTest</td>
+<td></td>
+<td>1</td>
+<td>com.hrm.qa.testcases.DashboardPageTest@42d8062c</td></tr>
+<tr>
+<td title='com.hrm.qa.testcases.EmpListPageTest.verifyEmpListPageUrl()'><b>verifyEmpListPageUrl</b><br>Test class: com.hrm.qa.testcases.EmpListPageTest</td>
+<td></td>
+<td>0</td>
+<td>com.hrm.qa.testcases.EmpListPageTest@cb51256</td></tr>
+<tr>
+<td title='com.hrm.qa.testcases.DeleteEmpCreatedTest.verifyEmpListPageUrl()'><b>verifyEmpListPageUrl</b><br>Test class: com.hrm.qa.testcases.DeleteEmpCreatedTest</td>
+<td></td>
+<td>0</td>
+<td>com.hrm.qa.testcases.DeleteEmpCreatedTest@25af5db5</td></tr>
+<tr>
+<td title='com.hrm.qa.testcases.EmpListPageTest.verifyEmpNameAddedInResultTable()'><b>verifyEmpNameAddedInResultTable</b><br>Test class: com.hrm.qa.testcases.EmpListPageTest</td>
+<td></td>
+<td>2</td>
+<td>com.hrm.qa.testcases.EmpListPageTest@cb51256</td></tr>
+<tr>
+<td title='com.hrm.qa.testcases.LeaveListPageTest.verifyEmpNameInResultTable()'><b>verifyEmpNameInResultTable</b><br>Test class: com.hrm.qa.testcases.LeaveListPageTest</td>
+<td></td>
+<td>2</td>
+<td>com.hrm.qa.testcases.LeaveListPageTest@5bfbf16f</td></tr>
+<tr>
+<td title='com.hrm.qa.testcases.DashboardPageTest.verifyHolidaysPage()'><b>verifyHolidaysPage</b><br>Test class: com.hrm.qa.testcases.DashboardPageTest</td>
+<td></td>
+<td>1</td>
+<td>com.hrm.qa.testcases.DashboardPageTest@42d8062c</td></tr>
+<tr>
+<td title='com.hrm.qa.testcases.DashboardPageTest.verifyLeaveListIconPage()'><b>verifyLeaveListIconPage</b><br>Test class: com.hrm.qa.testcases.DashboardPageTest</td>
+<td></td>
+<td>0</td>
+<td>com.hrm.qa.testcases.DashboardPageTest@42d8062c</td></tr>
+<tr>
+<td title='com.hrm.qa.testcases.DashboardPageTest.verifyLeaveListPage()'><b>verifyLeaveListPage</b><br>Test class: com.hrm.qa.testcases.DashboardPageTest</td>
+<td></td>
+<td>0</td>
+<td>com.hrm.qa.testcases.DashboardPageTest@42d8062c</td></tr>
+<tr>
+<td title='com.hrm.qa.testcases.AddEmpPageTest.verifyPIMPageUrl()'><b>verifyPIMPageUrl</b><br>Test class: com.hrm.qa.testcases.AddEmpPageTest</td>
+<td></td>
+<td>2</td>
+<td>com.hrm.qa.testcases.AddEmpPageTest@6043cd28</td></tr>
+<tr>
+<td title='com.hrm.qa.testcases.DashboardPageTest.verifyUsersPage()'><b>verifyUsersPage</b><br>Test class: com.hrm.qa.testcases.DashboardPageTest</td>
+<td></td>
+<td>1</td>
+<td>com.hrm.qa.testcases.DashboardPageTest@42d8062c</td></tr>
+</table><p>
+</body>
+</html>

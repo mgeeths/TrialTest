@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.hrm.qa.testcases.addEmpPageTest&apos; to &apos;AddEmpPageTest&apos;&#x0D;&#x0A;- Original project: &apos;TrialOrangeHrm&apos;&#x0D;&#x0A;- Original element: &apos;com.hrm.qa.testcases.addEmpPageTest&apos;&#x0D;&#x0A;- Renamed element: &apos;com.hrm.qa.testcases.AddEmpPageTest&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;addEmpPageTest&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;com.hrm.qa.testcases{addEmpPageTest.java[addEmpPageTest" matchStrategy="1" name="AddEmpPageTest" qualified="false" references="true" similarDeclarations="false" stamp="1592267280004" textual="false" version="1.0"/>
+</session>

@@ -1,0 +1,63 @@
+package com.hrm.qa.testcases;
+
+import java.text.ParseException;
+
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+import com.hrm.qa.base.BaseClass;
+import com.hrm.qa.pages.AssignLeavePage;
+import com.hrm.qa.pages.DashboardPage;
+import com.hrm.qa.pages.LeaveListPage;
+import com.hrm.qa.pages.LoginPage;
+import com.hrm.qa.pages.TrackerPage;
+
+public class TrackerTestPage extends BaseClass {
+
+	
+		LoginPage loginPage;
+		DashboardPage dashboardPage;
+		TrackerPage trackerPage;
+		public TrackerTestPage() {
+			super();
+		}
+		
+		@BeforeClass
+		public void setUp() {
+			launchBrowser();
+
+			loginPage = new LoginPage();
+			dashboardPage = new DashboardPage();
+			trackerPage = new TrackerPage();
+			loginPage.goToWebsite();
+			loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
+		}
+
+		@BeforeMethod
+		public void goToPerformanceTab() {
+			dashboardPage.goToPerformanceTab();
+			}
+		
+		@Test(priority=1)
+		public void createNewTaracker() {
+			trackerPage.addNewTracker(tName, eName, revName);
+		}
+		
+		
+		@AfterMethod
+		public void goBackToDashboardPage() throws InterruptedException {
+			Thread.sleep(2000);
+			dashboardPage.goToDashboardPage();
+		}
+		
+		@AfterClass
+		public void tearDown() {
+			driver.quit();
+		}
+	}
+
+}
