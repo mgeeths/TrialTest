@@ -22,7 +22,7 @@ public class ConfigureNewHolidays extends BaseClass {
 
 	@FindBy(linkText = "Holidays")
 	WebElement holidaysLink;
-	
+
 	@FindBy(id = "holiday_description")
 	WebElement newHolidayName;
 
@@ -41,17 +41,24 @@ public class ConfigureNewHolidays extends BaseClass {
 	@FindBy(id = "holiday_length")
 	WebElement selectLengthField;
 
+	@FindBy(id = "btnDelete")
+	WebElement deleteBtn;
+
+	@FindBy(id = "dialogDeleteBtn")
+	WebElement confirmDeleteBtn;
+
 	public ConfigureNewHolidays() {
 		PageFactory.initElements(driver, this);
 	}
 
 	// Actions
-	
-	public void createNewHoliday(String holidayName, String holidayDate ) throws InterruptedException {
+
+	public void createNewHoliday(String holidayName, String holidayDate) throws InterruptedException {
 		newHolidayName.sendKeys(holidayName);
 		holidayDatePicker.clear();
 		holidayDatePicker.sendKeys(holidayDate);
 		holidayDatePicker.sendKeys(Keys.ENTER);
+		Thread.sleep(1000);
 		String date = holidayDatePicker.getText();
 		System.out.println(date);
 		recurringChkbox.click();
@@ -80,10 +87,12 @@ public class ConfigureNewHolidays extends BaseClass {
 
 		}
 	}
-/*editHoliday function will return two string values. So to return them, declare a List<String> 
- * variable results. This declaration is done before the second for loop, as the list will be 
- * created only there. 
- */
+
+	/*
+	 * editHoliday function will return two string values. So to return them,
+	 * declare a List<String> variable results. This declaration is done before the
+	 * second for loop, as the list will be created only there.
+	 */
 	public List<String> editHoliday(String holidayName) throws InterruptedException {
 		for (WebElement eachRow : allRows) {
 			List<WebElement> allCols = eachRow.findElements(By.xpath("./td"));
@@ -117,4 +126,31 @@ public class ConfigureNewHolidays extends BaseClass {
 		}
 		return results;
 	}
+
+	public void deleteHolidayCreated(String holidayName) {
+		for (WebElement eachRow : allRows) {
+			List<WebElement> allCols = eachRow.findElements(By.xpath("./td"));
+			String nameLink = allCols.get(1).getText();
+			if (nameLink.equals(holidayName)) {
+				WebElement box = allCols.get(0).findElement(By.xpath("./input[@type='checkbox']"));
+				JavascriptExecutor js = ((JavascriptExecutor) driver);
+				js.executeScript("arguments[0].scrollIntoView(true);", box);
+				box.click();
+				deleteBtn.click();
+				confirmDeleteBtn.click();
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				Assert.assertTrue(driver.findElement(By.tagName("body")).getText().contains("Successfully Deleted"));
+				break;
+			}
+
+		
+		}
+	}
+	
+	
 }

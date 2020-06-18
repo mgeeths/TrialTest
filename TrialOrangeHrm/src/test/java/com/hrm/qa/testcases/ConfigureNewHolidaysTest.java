@@ -42,7 +42,7 @@ public class ConfigureNewHolidaysTest extends BaseClass {
 		dashboardPage.goToHoildaysPage();
 	}
 
-	@Test
+	@Test(priority=1)
 	@Parameters({"holidayName","holidayDate"})
 	public void verifyCreateNewHolidayInTable(String holidayName, String holidayDate) throws InterruptedException {
 		holidaysPage.goToConfigureNewHolidayPage();
@@ -60,15 +60,21 @@ public class ConfigureNewHolidaysTest extends BaseClass {
 	 * assertion will fail and we will know clearly that the function did not return two items.   
 	 */
 
-	@Test
+	@Test(priority=2)
 	@Parameters({"holidayName"})
 	public void verifyEditHoiliday(String holidayName) throws InterruptedException {
-		//configureHolidays.createNewHoliday();
+		
 		List<String> resultTable = configureHolidays.editHoliday(holidayName);
 		Assert.assertEquals(resultTable.size(),2);
 		Assert.assertEquals(resultTable.get(0), "Half Day");
 		Assert.assertEquals(resultTable.get(1), "No");
 
+	}
+	
+	@Test(priority=3)
+	@Parameters({"holidayName"})
+	public void verifyDeleteHolidayCreated(String holidayName) {
+		configureHolidays.deleteHolidayCreated(holidayName);
 	}
 
 	@AfterMethod

@@ -2,81 +2,82 @@
 <testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Practice Sanity TestNG Suite" duration-ms="35305" started-at="2020-06-17T15:26:34 PDT" finished-at="2020-06-17T15:27:09 PDT">
+  <suite name="Practice Sanity TestNG Suite" duration-ms="56644" started-at="2020-06-17T18:33:53 PDT" finished-at="2020-06-17T18:34:49 PDT">
     <groups>
     </groups>
-    <test name="NewUsersAndLeaveListTests" duration-ms="35305" started-at="2020-06-17T15:26:34 PDT" finished-at="2020-06-17T15:27:09 PDT">
+    <test name="NewUsersAndLeaveListTests" duration-ms="56644" started-at="2020-06-17T18:33:53 PDT" finished-at="2020-06-17T18:34:49 PDT">
       <class name="com.hrm.qa.testcases.ConfigureNewHolidaysTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.hrm.qa.testcases.ConfigureNewHolidaysTest@7113b13f]" name="setUp" is-config="true" duration-ms="8168" started-at="2020-06-17T15:26:48 PDT" finished-at="2020-06-17T15:26:56 PDT">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.hrm.qa.testcases.ConfigureNewHolidaysTest@29b5cd00]" name="setUp" is-config="true" duration-ms="18834" started-at="2020-06-17T18:33:53 PDT" finished-at="2020-06-17T18:34:12 PDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="navToConfigureHolidays()[pri:0, instance:com.hrm.qa.testcases.ConfigureNewHolidaysTest@7113b13f]" name="navToConfigureHolidays" is-config="true" duration-ms="1641" started-at="2020-06-17T15:26:56 PDT" finished-at="2020-06-17T15:26:57 PDT">
+        <test-method status="PASS" signature="navToConfigureHolidays()[pri:0, instance:com.hrm.qa.testcases.ConfigureNewHolidaysTest@29b5cd00]" name="navToConfigureHolidays" is-config="true" duration-ms="1408" started-at="2020-06-17T18:34:12 PDT" finished-at="2020-06-17T18:34:13 PDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- navToConfigureHolidays -->
-        <test-method status="PASS" signature="verifyCreateNewHolidayInTable(java.lang.String, java.lang.String)[pri:0, instance:com.hrm.qa.testcases.ConfigureNewHolidaysTest@7113b13f]" name="verifyCreateNewHolidayInTable" duration-ms="6146" started-at="2020-06-17T15:26:57 PDT" finished-at="2020-06-17T15:27:04 PDT">
+        <test-method status="PASS" signature="verifyCreateNewHolidayInTable(java.lang.String, java.lang.String)[pri:1, instance:com.hrm.qa.testcases.ConfigureNewHolidaysTest@29b5cd00]" name="verifyCreateNewHolidayInTable" duration-ms="7117" started-at="2020-06-17T18:34:13 PDT" finished-at="2020-06-17T18:34:20 PDT">
           <params>
             <param index="0">
               <value>
-                <![CDATA[Christmas Eve]]>
+                <![CDATA[Thanksgiving Day]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[2020-12-24]]>
+                <![CDATA[2020-11-26]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyCreateNewHolidayInTable -->
-        <test-method status="PASS" signature="logoutofAppln()[pri:0, instance:com.hrm.qa.testcases.ConfigureNewHolidaysTest@7113b13f]" name="logoutofAppln" is-config="true" duration-ms="361" started-at="2020-06-17T15:27:04 PDT" finished-at="2020-06-17T15:27:04 PDT">
+        <test-method status="PASS" signature="logoutofAppln()[pri:0, instance:com.hrm.qa.testcases.ConfigureNewHolidaysTest@29b5cd00]" name="logoutofAppln" is-config="true" duration-ms="442" started-at="2020-06-17T18:34:20 PDT" finished-at="2020-06-17T18:34:21 PDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logoutofAppln -->
-        <test-method status="PASS" signature="navToConfigureHolidays()[pri:0, instance:com.hrm.qa.testcases.ConfigureNewHolidaysTest@7113b13f]" name="navToConfigureHolidays" is-config="true" duration-ms="888" started-at="2020-06-17T15:27:04 PDT" finished-at="2020-06-17T15:27:05 PDT">
+        <test-method status="PASS" signature="navToConfigureHolidays()[pri:0, instance:com.hrm.qa.testcases.ConfigureNewHolidaysTest@29b5cd00]" name="navToConfigureHolidays" is-config="true" duration-ms="853" started-at="2020-06-17T18:34:21 PDT" finished-at="2020-06-17T18:34:21 PDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- navToConfigureHolidays -->
-        <test-method status="PASS" signature="verifyEditHoiliday(java.lang.String)[pri:0, instance:com.hrm.qa.testcases.ConfigureNewHolidaysTest@7113b13f]" name="verifyEditHoiliday" duration-ms="3535" started-at="2020-06-17T15:27:05 PDT" finished-at="2020-06-17T15:27:08 PDT">
+        <test-method status="PASS" signature="verifyEditHoiliday(java.lang.String)[pri:2, instance:com.hrm.qa.testcases.ConfigureNewHolidaysTest@29b5cd00]" name="verifyEditHoiliday" duration-ms="3489" started-at="2020-06-17T18:34:21 PDT" finished-at="2020-06-17T18:34:25 PDT">
           <params>
             <param index="0">
               <value>
-                <![CDATA[Christmas Eve]]>
+                <![CDATA[Thanksgiving Day]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyEditHoiliday -->
-        <test-method status="PASS" signature="logoutofAppln()[pri:0, instance:com.hrm.qa.testcases.ConfigureNewHolidaysTest@7113b13f]" name="logoutofAppln" is-config="true" duration-ms="328" started-at="2020-06-17T15:27:08 PDT" finished-at="2020-06-17T15:27:09 PDT">
+        <test-method status="PASS" signature="logoutofAppln()[pri:0, instance:com.hrm.qa.testcases.ConfigureNewHolidaysTest@29b5cd00]" name="logoutofAppln" is-config="true" duration-ms="371" started-at="2020-06-17T18:34:25 PDT" finished-at="2020-06-17T18:34:25 PDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logoutofAppln -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.hrm.qa.testcases.ConfigureNewHolidaysTest@7113b13f]" name="tearDown" is-config="true" duration-ms="737" started-at="2020-06-17T15:27:09 PDT" finished-at="2020-06-17T15:27:09 PDT">
+        <test-method status="PASS" signature="navToConfigureHolidays()[pri:0, instance:com.hrm.qa.testcases.ConfigureNewHolidaysTest@29b5cd00]" name="navToConfigureHolidays" is-config="true" duration-ms="920" started-at="2020-06-17T18:34:25 PDT" finished-at="2020-06-17T18:34:26 PDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- navToConfigureHolidays -->
+        <test-method status="PASS" signature="verifyDeleteHolidayCreated(java.lang.String)[pri:3, instance:com.hrm.qa.testcases.ConfigureNewHolidaysTest@29b5cd00]" name="verifyDeleteHolidayCreated" duration-ms="22038" started-at="2020-06-17T18:34:26 PDT" finished-at="2020-06-17T18:34:48 PDT">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Thanksgiving Day]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyDeleteHolidayCreated -->
+        <test-method status="PASS" signature="logoutofAppln()[pri:0, instance:com.hrm.qa.testcases.ConfigureNewHolidaysTest@29b5cd00]" name="logoutofAppln" is-config="true" duration-ms="392" started-at="2020-06-17T18:34:48 PDT" finished-at="2020-06-17T18:34:49 PDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logoutofAppln -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.hrm.qa.testcases.ConfigureNewHolidaysTest@29b5cd00]" name="tearDown" is-config="true" duration-ms="709" started-at="2020-06-17T18:34:49 PDT" finished-at="2020-06-17T18:34:49 PDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- com.hrm.qa.testcases.ConfigureNewHolidaysTest -->
-      <class name="com.hrm.qa.testcases.HolidaysPageTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.hrm.qa.testcases.HolidaysPageTest@60285225]" name="setUp" is-config="true" duration-ms="11169" started-at="2020-06-17T15:26:34 PDT" finished-at="2020-06-17T15:26:45 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="verifyResultsTablePerFilterDates()[pri:0, instance:com.hrm.qa.testcases.HolidaysPageTest@60285225]" name="verifyResultsTablePerFilterDates" duration-ms="668" started-at="2020-06-17T15:26:45 PDT" finished-at="2020-06-17T15:26:46 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyResultsTablePerFilterDates -->
-        <test-method status="PASS" signature="logoutofAppln()[pri:0, instance:com.hrm.qa.testcases.HolidaysPageTest@60285225]" name="logoutofAppln" is-config="true" duration-ms="864" started-at="2020-06-17T15:26:46 PDT" finished-at="2020-06-17T15:26:47 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- logoutofAppln -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.hrm.qa.testcases.HolidaysPageTest@60285225]" name="tearDown" is-config="true" duration-ms="744" started-at="2020-06-17T15:26:47 PDT" finished-at="2020-06-17T15:26:48 PDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.hrm.qa.testcases.HolidaysPageTest -->
     </test> <!-- NewUsersAndLeaveListTests -->
   </suite> <!-- Practice Sanity TestNG Suite -->
 </testng-results>

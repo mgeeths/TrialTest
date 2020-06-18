@@ -48,7 +48,7 @@ public class HolidaysPageTest extends BaseClass {
 		Assert.assertEquals(DateValues.get(1), "2020-12-31");
 		}
 	
-	@Test
+	//@Test
 	public void verifyResultsTablePerFilterDates() throws ParseException {
 		Assert.assertTrue(holidaysPage.filterHolidaysByDate());
 	}
@@ -67,7 +67,7 @@ public class HolidaysPageTest extends BaseClass {
 
 	}
 	
-	//@Test
+	@Test
 	public void verifyDeleteHoliday() throws InterruptedException {
 		//holidaysPage.goToConfigureNewHolidayPage();
 		holidaysPage.DeleteHoliday();
@@ -76,7 +76,7 @@ public class HolidaysPageTest extends BaseClass {
 	
 	@AfterMethod
 	public void logoutofAppln() throws InterruptedException {
-		dashboardPage.logoutOfAppln();
+		dashboardPage.goToDashboardPage();
 	}
 	
 	@AfterClass

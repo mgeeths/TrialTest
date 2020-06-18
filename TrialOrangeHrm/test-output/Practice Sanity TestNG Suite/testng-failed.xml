@@ -2,25 +2,15 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Practice Sanity TestNG Suite]">
   <test thread-count="5" name="NewUsersAndLeaveListTests(failed)">
-    <parameter name="holidayName" value="Christmas"/>
-    <parameter name="holidayDate" value="2020-12-25"/>
+    <parameter name="holidayName" value="Thanksgiving Day"/>
+    <parameter name="holidayDate" value="2020-11-26"/>
     <classes>
-      <class name="com.hrm.qa.testcases.AssignLeavePageTest">
-        <methods>
-          <include name="setUp"/>
-          <include name="tearDown"/>
-          <include name="goBackToDashboardPage"/>
-          <include name="verifyAssignHalfDayLeave"/>
-          <include name="goToAssignLeavePage"/>
-          <include name="verifyAssignSpecificTimeLeave"/>
-        </methods>
-      </class> <!-- com.hrm.qa.testcases.AssignLeavePageTest -->
       <class name="com.hrm.qa.testcases.ConfigureNewHolidaysTest">
         <methods>
           <include name="navToConfigureHolidays"/>
           <include name="logoutofAppln"/>
           <include name="setUp"/>
-          <include name="verifyEditHoiliday"/>
+          <include name="verifyDeleteHolidayCreated" invocation-numbers="0"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- com.hrm.qa.testcases.ConfigureNewHolidaysTest -->
